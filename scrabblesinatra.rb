@@ -18,10 +18,15 @@ class SinatraScrabble < Sinatra::Base
     erb :score
   end
 
+  get "/multiple_scores" do
+    erb :multiple_scores
+  end
+
   post "/multiple_scores" do
     @word = params[:user_input]
-    #creates an array
+
     multiple_words = @word.split(", ")
+    #creates a hash
     @multiple_word_score = {}
     # pushes each individual word of array into array
     multiple_words.each do |word|
