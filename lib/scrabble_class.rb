@@ -60,6 +60,23 @@ module Scrabble
     end
 
 
+    def self.highest_shortest_score(array_of_words)
+      are_strings?(array_of_words)
+      max_score = 0
+      winning_word = ""
+      array_of_words.each do |word|
+        score = 0
+        score += self.score(word)
+        if score == max_score
+            winning_word = word if word.length < winning_word.length && !check_7_letters(winning_word)
+        elsif score > max_score
+            max_score = score
+          winning_word = word
+        end
+      end
+      return winning_word
+    end
+
 
     #returns the total score value for the given word.
     def self.score(word)

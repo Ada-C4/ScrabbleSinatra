@@ -6,4 +6,14 @@
       <%= letter.upcase %> - <%= @letters[letter] %> <br>
     <% end %><br>
   <% end %>
+  <% if @rules == "seven_letter" %>
+    <h3> House Rules: 50 point BONUS for using all seven tiles in your word! </h3>
+  <% end %>
+  <% if @rules == "shortest" %>
+  <h3> House Rules: Shorter words win in a tie! </h3>
+  <% end %>
+  <% if @word_array.length > 1 %>
+    <h1><strong><%= @winner.upcase %></strong> is the winning word!</h1>
+  <% end %>
+
 </div>
