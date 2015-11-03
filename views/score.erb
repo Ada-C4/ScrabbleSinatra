@@ -9,11 +9,14 @@ Includes a form that contains one text input -->
   </head>
   <body>
     <h1>Virtual Scrabble</h1>
+    <h4>Please enter a word below to find out its Scrabble score!</h4>
+    <p>If you would like to enter multiple words, enter each word, separated by a comma, i.e: cat, mouse.</p>
     <%if @multiple_word_score.nil? %>
       <% else %>
       <% @multiple_word_score.each do |word, score|%>
       <p>The value of <strong><%= word %></strong> is <%= score %>.</p>
       <% end %>
+      <p><strong>Your total score is <%= @total %>.</strong></p>
     <% end %>
     <form action="#" method="post">
     <p>

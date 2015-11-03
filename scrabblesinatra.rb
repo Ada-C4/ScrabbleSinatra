@@ -12,16 +12,29 @@ class SinatraScrabble < Sinatra::Base
     erb :score
   end
 
-  post "/score" do
+  post "/scores" do
+
+
+    erb: score
+  end
+
+  post "/multiple_scores" do
     @word = params[:user_input]
     #creates an array
-    multiple_words = @word.split(" ")
+    multiple_words = @word.split(", ")
     @multiple_word_score = {}
     # pushes each individual word of array into array
     multiple_words.each do |word|
       word_score = Scrabble::ScrabbleGame.score(word)
       @multiple_word_score[word] = word_score
+
+      @total = 0
+      multiple_words.each do |word|
+        word_score = Scrabble::ScrabbleGame.score(word)
+        @total += word_score
+        end
+      @total
     end
-    erb :score
+    erb :multiple_scores
   end
 end
