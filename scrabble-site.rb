@@ -29,10 +29,12 @@ class ScrabbleSite < Sinatra::Base
       end
       @score_hash[word] = Scrabble.score(word)
     end
-
-
-
     erb :score
+  end
+
+  get "/word/:guess_word" do
+    @word = params[:guess_word]
+    erb :breakdown
   end
 
 end

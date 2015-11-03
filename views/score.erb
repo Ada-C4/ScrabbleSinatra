@@ -3,7 +3,6 @@
 <br>
 <form action="#" method="post">
   <h2>Word(s) to Score</h2>
-  </form>
   </p>
   <label for="word_to_score">Please enter words separated by commas.</label>
   <br>
@@ -30,16 +29,13 @@
         <% @score_hash.each do |word, score| %>
         <li>
           <%= word %> scored <%= score %> points.
+          <a href="/word/<%= word %>">Breakdown</a>
         </li>
         <% end %>
       </ul>
 
     </p>
-    <p>
-      <%= @not_legit_word %> <br>
-      <%= @words[0] %>
-      <%= @words %>
-    </p>
+
 
 
   <% end %>
