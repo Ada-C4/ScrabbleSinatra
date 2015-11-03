@@ -9,8 +9,13 @@
     <h1><%= @word %> | <%= @score %></h1>
   <% end %>
   <form action="#" method="post">
+    <p>
       <label for="word">WORD:</label>
-      <input type="word" id="word" name="word">
+      <input type="word" id="word" name="word" required>
+    </p>
+    <p>
+      <input type="submit" name="submit" id="submit" value="Score Word">
+    </p>
   </form>
 </body>
 </html>

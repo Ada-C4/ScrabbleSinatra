@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Score</title>
+</head>
+<body>
+  <% if !@words.nil? %>
+    <% @scores.each do |key, value| %>
+      <h1><%= key %> | <%= value %></h1>
+    <% end %>
+  <% end %>
+  <form action="#" method="post">
+    <p>
+      <label for="words">WORDS:</label>
+      <textarea rows="1" cols="50" name="words" id="words"></textarea>
+    </p>
+    <p>
+      <input type="submit" name="submit" id="submit" value="Score Words">
+    </p>
+  </form>
+</body>
+</html>

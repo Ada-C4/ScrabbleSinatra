@@ -22,4 +22,19 @@ class ScrabbleSinatra < Sinatra::Base
     erb :score
   end
 
+  get "/score_multi" do
+    erb :score_multi
+  end
+
+  post "/score_multi" do
+    @words = params[:words].split(" ")
+    @scores = {}
+
+    @words.each do |word|
+      @scores[word] = Scrabble::Scrabble.score(word)
+    end
+
+    erb :score_multi
+  end
+
 end
