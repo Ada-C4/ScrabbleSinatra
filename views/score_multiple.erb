@@ -16,7 +16,12 @@
     </form>
     <br>
     <% if @words_scored %>
-      <h4>The scores for <%= @words_array %> are <%= @word_scores %></h4>
+    <h4> Your scored words: </h4>
+      <%@words_with_scores.each do |word, score|%>
+        <p>
+          <%= word %>: <%= score%>
+        </p>
+      <% end %>
     <% end %>
     <br>
     <a href="/">Home</a>

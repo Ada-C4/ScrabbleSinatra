@@ -24,9 +24,10 @@ class ScrabbleSite < Sinatra::Base
   post "/score_multiple" do
     @words_scored = true
     @words_array = params[:words].split(", ")
-    @word_scores =  @words_array.map do |word|
+    @scores_array =  @words_array.map do |word|
       Scrabble::Scrabble.score(word)
     end
+    @words_with_scores = Hash[@words_array.zip(@scores_array)]
     erb :score_multiple
   end
 
