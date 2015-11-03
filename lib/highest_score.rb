@@ -1,4 +1,3 @@
-require 'pry'
 require "./lib/score.rb"
 
 module Scrabble

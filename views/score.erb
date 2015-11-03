@@ -1,3 +1,6 @@
+<!-- Score page:
+Includes a form that contains one text input -->
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,6 +8,20 @@
     <title>Scrabble Score</title>
   </head>
   <body>
-    "Coming soon!"
+    <h1>Virtual Scrabble</h1>
+    <%if @multiple_word_score.nil? %>
+      <% else %>
+      <% @multiple_word_score.each do |word, score|%>
+      <p>The value of <strong><%= word %></strong> is <%= score %>.</p>
+      <% end %>
+    <% end %>
+    <form action="#" method="post">
+    <p>
+      <label for="user_input">Enter a word you would like to play:</label>
+      <input type="text" name="user_input" id="user_input">
+    </p>
+    <p>
+      <input type="submit" name="submit" id="submit" value="Submit word">
+    </p>
   </body>
 </html>

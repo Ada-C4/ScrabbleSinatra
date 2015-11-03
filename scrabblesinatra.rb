@@ -1,4 +1,6 @@
 require 'sinatra'
+require "./lib/score.rb"
+require "./lib/highest_score.rb"
 
 class SinatraScrabble < Sinatra::Base
 
@@ -10,4 +12,16 @@ class SinatraScrabble < Sinatra::Base
     erb :score
   end
 
+  post "/score" do
+    @word = params[:user_input]
+    #creates an array
+    multiple_words = @word.split(" ")
+    @multiple_word_score = {}
+    # pushes each individual word of array into array
+    multiple_words.each do |word|
+      word_score = Scrabble::ScrabbleGame.score(word)
+      @multiple_word_score[word] = word_score
+    end
+    erb :score
+  end
 end
