@@ -13,8 +13,8 @@ class SinatraScrabble < Sinatra::Base
   end
 
   post "/scores" do
-
-
+    @word = params[:user_input]
+    @word.score(word)
     erb: score
   end
 
