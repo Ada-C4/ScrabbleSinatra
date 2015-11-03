@@ -9,10 +9,16 @@
 </form>
 
 <% if @scored_word %>
-  <p>
-    You have played the word <%= @word %>.
-  </p>
-  <p>
-    <%= @word %> is worth <%= @score %> points.
-  </p>
+  <% if @not_legit_word %>
+    <p>
+      Sorry, you have not entered a word. Please try again.
+    </p>
+  <% else %>
+    <p>
+      You have played the word <%= @word %>.
+    </p>
+    <p>
+      <%= @word %> is worth <%= @score %> points.
+    </p>
+  <% end %>
 <% end %>

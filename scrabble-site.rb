@@ -17,6 +17,11 @@ class ScrabbleSite < Sinatra::Base
   post "/score" do
     @scored_word = true
     @word = params[:word_to_score]
+    if @word == ""
+      @not_legit_word = true
+    else
+      @not_legit_word = false
+    end
     @score = Scrabble.score(@word)
 
     erb :score
