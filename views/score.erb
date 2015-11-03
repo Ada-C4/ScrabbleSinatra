@@ -4,13 +4,21 @@
   <body>
     <h1> SCORE </h1>
 
-    <fieldset>
-      <legend>Score a word!</legend>
+    <form id="submit-word" action="#" method="post">
+      <fieldset>
+        <legend>Score a word!</legend>
+        <p>
+          <!-- the "for" in label and the "id" in input have to match -->
+          <label for="word">Word:</label>
+          <input type="text" name="word" id="word">
+        </p>
+      </fieldset>
+    </form>
+
+    <% if @score != nil %>
       <p>
-        <!-- the "for" in label and the "id" in input have to match -->
-        <label for="word">Word:</label>
-        <input type="text" name="word" id="word">
+        The word <%= @word.upcase %> scores <%= @score %> points!
       </p>
-    </fieldset>
+    <% end %>
   </body>
 </html>

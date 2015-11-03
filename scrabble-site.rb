@@ -10,4 +10,10 @@ class ScrabbleSinatra < Sinatra::Base
     erb :score
   end
 
+  post "/score" do
+    @word = params[:word]
+    @score = Scrabble::Scrabble.score(@word)
+    erb :score
+  end
+
 end
