@@ -13,16 +13,27 @@ class MySite < Sinatra::Base
 
   post "/score" do
     word_array = params[:word].split(" ")
+    word = word_array[0]
     @words = {}
-    word_array.each do |word|
-      @words[word] = {}
-      @words[word[:score]], @words[word[:breakdown]] = Scrabble::Scrabble.score(word)
-    end
+    @words[word] = {}
+    @words[word][:score] = Scrabble::Scrabble.score(word)
+    @words[word][:word_breakdown] = Scrabble::Scrabble.get_word_breakdown(word)
     erb :scoredword
   end
 
   get "/scoremany" do
     erb :scoremany
+  end
+
+  post "/scoremany" do
+    word_array = params[:word].split(" ")
+    @words = {}
+    word_array.each do |word|
+      @words[word] = {}
+      @words[word][:score] = Scrabble::Scrabble.score(word)
+      @words[word][:word_breakdown] = Scrabble::Scrabble.get_word_breakdown(word)
+    end
+    erb :scoredword
   end
 
 end
