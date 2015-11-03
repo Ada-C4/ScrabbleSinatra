@@ -1,3 +1,24 @@
 <html>
-  <h1>Coming Soon!</h1>
+  <h1>Score A Word</h1>
+
+  <% if @score.nil? %>
+
+  <% else %>
+    <p>
+      The score of <strong><%= @word %></strong> is <strong><%= @score %></strong>
+    </p>
+    <p>
+      Score another word:
+    </p>
+  <% end %>
+
+  <form action="#" method="post">
+  <label for="word">Word:</label>
+  <input type="text" id="word" name="word">
+  <br>
+  <br>
+  <input type="submit" name="submit" id="submit" value="Submit Word">
+
+</form>
+
 </html>

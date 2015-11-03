@@ -1,4 +1,5 @@
 require 'sinatra'
+require "./lib/scrabble_master"
 
 class ScrabbleSite < Sinatra::Base
 
@@ -8,6 +9,16 @@ class ScrabbleSite < Sinatra::Base
 
   get "/score" do
     erb :score
+  end
+
+  post "/score" do
+    @word = params[:word]
+    @score = Scrabble::Scrabble.score(@word)
+    erb :score
+  end
+
+  get "/scoremore" do
+    erb :scoremore
   end
 
 end
