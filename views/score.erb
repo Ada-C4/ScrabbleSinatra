@@ -1,5 +1,8 @@
 <h1>Get a word score!</h1>
 <form id="get-scores" action="#" method="post">
-  <input type="text" id="word">
+  <input type="text" id="word" name="word">
   <input type="submit" name="submit" id="submit" value="Score it">
 </form>
+<p>
+  Here is the score for your word <%= @word %>: <%= @score %>
+</p>

@@ -1,4 +1,5 @@
 require "sinatra"
+require "./lib/scrabble"
 
 class ScrabbleSite < Sinatra::Base
 
@@ -11,6 +12,8 @@ class ScrabbleSite < Sinatra::Base
   end
 
   post "/score" do
+    @word = params[:word]
+    @score = ScrabbleMod::Scrabble.score(@word)
     erb :score
   end
 
