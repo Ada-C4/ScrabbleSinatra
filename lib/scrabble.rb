@@ -1,6 +1,6 @@
 module Scrabble
   class Scrabble
-    def letter_score(letter)
+    def self.letter_score(letter)
       case letter.downcase
       when "a", "e", "i", "o", "u", "l", "n", "r", "s", "t"
         return 1
@@ -21,7 +21,7 @@ module Scrabble
       end
     end
     #SCORE = 0
-    def word_score(word)
+    def self.word_score(word)
       score = 0
       word.split("").each do |letter|
         letter = letter_score(letter)
@@ -49,4 +49,4 @@ module Scrabble
       end
     end
   end
-end  
+end
