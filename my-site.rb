@@ -1,6 +1,6 @@
 require "sinatra"
 
-class SinatraScrbble < Sinatra::Base
+class SinatraScrabble < Sinatra::Base
 
   get "/" do
     erb :index

@@ -1,2 +1,2 @@
 require './my-site'
-run MySite
+run SinatraScrabble
