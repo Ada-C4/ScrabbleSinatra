@@ -6,4 +6,15 @@ class Scrabbly_Scrabbles < Sinatra::Base
     erb :index
   end
 
+  get "/index" do
+    erb :index
+  end
+
+  get "/one" do
+    erb :score_page
+  end
+
+  get "/multiple" do
+    erb :score_multiple_words
+  end
 end
