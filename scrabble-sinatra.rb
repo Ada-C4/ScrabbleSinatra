@@ -9,4 +9,8 @@ class ScrabbleSinatra < Sinatra::Base
     erb :score
   end
 
+  get "/score_multiple" do
+    erb :score_multiple
+  end
+
 end
