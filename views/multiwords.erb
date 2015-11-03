@@ -6,7 +6,12 @@
       <p>
         <label for="word">Please enter a list of words, seperated by commas:</label>
         <input type="text" name="word" id="word">
-        <p>  <%=@score%> </p>
+        <p>
+          <%@input_array.each do |word|%>
+            <%=word%> equals <%=Scrabble::Scrabble.word_score(word)%>
+          <br>
+          <%end%>
+         </p>
       </p>
       <br>
       <input type="submit" name="submit" id="submit" value="Get Score">

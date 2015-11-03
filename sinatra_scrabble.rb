@@ -23,7 +23,7 @@ require "./lib/scrabble_player_class"
 
     post "/multiwords.html" do
       @wordlist = params[:word]
-      @score = Scrabble::Scrabble.multiwords(@wordlist)
+      @input_array = Scrabble::Scrabble.multiwords(@wordlist)
       erb :multiwords
     end
   end
