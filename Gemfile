@@ -3,6 +3,6 @@ ruby "2.2.3"
 
 gem "sinatra"
 
-group: development do
-  gem "pry"
-end
+# group: development do
+#   gem "pry"
+# end
