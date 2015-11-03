@@ -17,4 +17,12 @@ class ScrabbleSite < Sinatra::Base
     erb :score
   end
 
+  get "/multiscore" do
+    erb :multiscore
+  end
+
+  post "/multiscore" do
+    erb :multiscore
+  end
+
 end
