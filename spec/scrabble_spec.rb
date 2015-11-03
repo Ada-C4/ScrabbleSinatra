@@ -34,16 +34,16 @@ describe Scrabble do
         expect(Scrabble::Scrabble.score("haiku       ")).to eq 12
       end
 
-      it "returns the correct bonus point value when given a 7-letter word" do
-        expect(Scrabble::Scrabble.score("holiday")).to eq 64
-        expect(Scrabble::Scrabble.score("quality")).to eq 69
+      it "returns the correct bonus point value when given a bonus word" do
+        expect(Scrabble::Scrabble.score("holiday", true)).to eq 64
+        expect(Scrabble::Scrabble.score("quality", true)).to eq 69
       end
 
       it "returns the correct point value when there are capital letters" do
         expect(Scrabble::Scrabble.score("dOG")).to eq 5
         expect(Scrabble::Scrabble.score("FrienD")).to eq 10
-        expect(Scrabble::Scrabble.score("hoLIDay")).to eq 64
-        expect(Scrabble::Scrabble.score("QUALITY")).to eq 69
+        expect(Scrabble::Scrabble.score("hoLIDay")).to eq 14
+        expect(Scrabble::Scrabble.score("QUALITY")).to eq 19
       end
 
     end
@@ -59,11 +59,11 @@ describe Scrabble do
         expect(Scrabble::Scrabble.highest_score_from_array(["dog", "friend", "haiku"])).to eq("haiku")
         expect(Scrabble::Scrabble.highest_score_from_array(["jennie", "jenna"])).to eq("jennie")
       end
-
-      it "will return the 7-letter word in the case of a tie" do
-        expect(Scrabble::Scrabble.highest_score_from_array(["qqqqqj", "aaaaaad"])).to eq("aaaaaad")
-        expect(Scrabble::Scrabble.highest_score_from_array(["zzzzzx", "qqqqqj", "aaaaaad"])).to eq("aaaaaad")
-      end
+      # 
+      # it "will return the 7-letter word in the case of a tie" do
+      #   expect(Scrabble::Scrabble.highest_score_from_array(["qqqqqj", "aaaaaad"])).to eq("aaaaaad")
+      #   expect(Scrabble::Scrabble.highest_score_from_array(["zzzzzx", "qqqqqj", "aaaaaad"])).to eq("aaaaaad")
+      # end
 
       it "will return the shorter word in the case of a tie without a 7-letter word" do
         expect(Scrabble::Scrabble.highest_score_from_array(["aa", "d"])).to eq("d")

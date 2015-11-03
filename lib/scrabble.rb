@@ -31,13 +31,13 @@ module Scrabble
        "z" => 10,
     }
 
-    def self.score(word)
+    def self.score(word, bonus = false)
       score = 0
       return nil if word.class != String || word == ""
       word.downcase.strip.each_char do |letter|
         score += SCORE_HASH[letter]
       end
-      score += 50 if word.length == 7
+      score += 50 if bonus
       return score
     end
 

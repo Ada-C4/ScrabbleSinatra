@@ -14,10 +14,11 @@ class MySite < Sinatra::Base
   post "/score" do
     word_array = params[:word].split(" ")
     word = word_array[0]
+    bonus = params[:bonus] == "on"
     @words = {}
     @words[word] = {}
     @words[word][:score] = Scrabble::Scrabble.score(word)
-    @words[word][:word_breakdown] = Scrabble::Scrabble.get_word_breakdown(word)
+    @words[word][:word_breakdown] = Scrabble::Scrabble.get_word_breakdown(word, bonus)
     erb :scoredword
   end
 
