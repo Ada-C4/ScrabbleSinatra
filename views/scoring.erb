@@ -6,4 +6,11 @@
 </p>
   <% end %>
 
+<h2>The letter breakdown is as follows</h2>
+<% @letter_hash.each do |key, value| %>
+  <p>
+    The score of <%= key %> is <%= value %>
+  </p>
+  <% end %>
+
 <h3>Click <a href="/score">here</a> to score again!</h3>
