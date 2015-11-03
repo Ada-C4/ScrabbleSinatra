@@ -55,15 +55,19 @@ module ScrabbleMod
         word_array = word.downcase.strip.split("")
         word_hash = {}
         word_array.each do |letter|
-          word_hash[letter] = SCORES[letter.to_sym]
+          if word_hash[letter] == nil
+            word_hash[letter] = SCORES[letter.to_sym]
+          else
+            word_hash[letter] += SCORES[letter.to_sym]
+          end
         end
 
         if word.length == 7
           bonus = true
         else
           bonus = false
-        return word_hash, bonus
         end
+        return word_hash, bonus
       else
         return "Error message"
       end

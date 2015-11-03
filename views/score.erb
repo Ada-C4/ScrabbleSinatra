@@ -10,12 +10,24 @@
           <% score.each do |letter, score| %>
             <li><%= "#{letter}: #{score}" %></li>
           <% end %>
+          <% if @bonus %>
+            <li>Plus 50 points for using all 7 letters!</li>
+          <% end %>
         <% end %>
       <% end %>
     </ul>
   <% end %>
 <% end %>
 
+<fieldset>
+<p>How would you like your Scrabble word scored?</p>
+<form method="post" action="/register">
+  <input type="radio" name="" value="Default: 7-letters highest" />
+  <input type="radio" name="" value="Shortest word wins" />
+</form>
+</fieldset>
+
+<fieldset>
 <p>Please enter words you would like to score below, separated by commas.</p>
 
 <form action="./score" method="post">
@@ -27,3 +39,4 @@
     <br><br>
     <button type="submit" value="Submit">Submit</button>
 </form>
+</fieldset>
