@@ -1,1 +1,9 @@
-<%= @word %> scored <%= @score %>!
+<div>
+  <% @word_array.each do |word| %>
+    <h3>The word <%= word %> is worth <%= @words[word] %> points.</h3>
+    <% letters = word.split("") %>
+    <% letters.each do |letter| %>
+      <%= letter.upcase %> - <%= @letters[letter] %> <br>
+    <% end %><br>
+  <% end %>
+</div>
