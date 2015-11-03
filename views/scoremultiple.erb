@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scrabble Word Scorer</title>
+  </head>
+  <body>
+    <h1> SCORE </h1>
+
+    <form id="multiple_words" action="#" method="post">
+      <fieldset>
+        <legend>Score a bunch of words!</legend>
+        <p>
+          <!-- the "for" in label and the "id" in input have to match -->
+          <label for="multiple_words">Words, separated by commas:</label>
+          <p>
+            <textarea rows="2" cols="50" name="multiple_words" id="multiple_words"></textarea>
+          </p>
+          <input type="submit" value="Score!">
+      </fieldset>
+    </form>
+
+    <%= @words %>
+  </body>
+</html>

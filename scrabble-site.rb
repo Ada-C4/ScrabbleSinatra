@@ -16,4 +16,14 @@ class ScrabbleSinatra < Sinatra::Base
     erb :score
   end
 
+  get "/scoremultiple" do
+    erb :scoremultiple
+  end
+
+  post "/scoremultiple" do
+    @words = params[:multiple_words].split(",")
+    @words.map! { |word| word.strip }
+    erb :scoremultiple
+  end
+
 end
