@@ -2,41 +2,43 @@ module Scrabble
 
   class ScrabbleGame
 
+    LETTER_VALUES = {
+      "a" => 1,
+      "b" => 3,
+      "c" => 3,
+      "d" => 2,
+      "e" => 1,
+      "f" => 4,
+      "g" => 2,
+      "h" => 4,
+      "i" => 1,
+      "j" => 8,
+      "k" => 5,
+      "l" => 1,
+      "m" => 3,
+      "n" => 1,
+      "o" => 1,
+      "p" => 3,
+      "q" => 10,
+      "r" => 1,
+      "s" => 1,
+      "t" => 1,
+      "u" => 1,
+      "v" => 4,
+      "w" => 4,
+      "x" => 8,
+      "y" => 4,
+      "z" => 10
+    }
+
     def self.score(word)
-      value = Hash.new
-      value["a"] = 1
-      value["b"] = 3
-      value["c"] = 3
-      value["d"] = 2
-      value["e"] = 1
-      value["f"] = 4
-      value["g"] = 2
-      value["h"] = 4
-      value["i"] = 1
-      value["j"] = 8
-      value["k"] = 5
-      value["l"] = 1
-      value["m"] = 3
-      value["n"] = 1
-      value["o"] = 1
-      value["p"] = 3
-      value["q"] = 10
-      value["r"] = 1
-      value["s"] = 1
-      value["t"] = 1
-      value["u"] = 1
-      value["v"] = 4
-      value["w"] = 4
-      value["x"] = 8
-      value["y"] = 4
-      value["z"] = 10
 
       letters = word.downcase.split("")
 
       word_score = 0
 
       letters.each do |letter|
-        word_score += value[letter]
+        word_score += LETTER_VALUES[letter]
       end
 
       if letters.length == 8

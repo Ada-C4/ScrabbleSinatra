@@ -3,14 +3,10 @@
   <form id="word-form" action="#" method="post">
     <fieldset>
       <legend>Word</legend>
-        <p>
+
           <!-- <label for="word">Word:</label> -->
           <input type="word" name="word" id="word">
-        </p>
+          <p>The score for that word is <%= @score %></p>
     </fieldset>
   </form>
-</div>
-
-<div id="score_display">
-  <p>The score for that word is <%= @score %></p>
 </div>
