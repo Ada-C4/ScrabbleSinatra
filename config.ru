@@ -1,3 +1,2 @@
-require "scrabble-site.rb"
-
+require './scrabble-site'
 run ScrabbleSite
