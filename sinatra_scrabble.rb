@@ -17,7 +17,13 @@ require "./lib/scrabble_player_class"
       erb :scores
     end
 
-    get "/multiwords" do
+    get "/multiwords.html" do
+      erb :multiwords
+    end
+
+    post "/multiwords.html" do
+      @wordlist = params[:word]
+      @score = Scrabble::Scrabble.multiwords(@wordlist)
       erb :multiwords
     end
   end

@@ -48,5 +48,17 @@ module Scrabble
         return scores[highest_score]
       end
     end
+
+    def self.multiwords(word_list)
+      word_array = []
+
+      word_list.split(",").each do |word|
+        word_array.push(word)
+      end
+
+        word_array.each do |word|
+          "#{word} has a score of #{self.word_score(word)}"
+        end
+    end
   end
 end
