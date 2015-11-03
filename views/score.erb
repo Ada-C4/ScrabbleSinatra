@@ -1,10 +1,12 @@
 <h1> Score </h1>
+
 <br>
 <form action="#" method="post">
-  <label for="word_to_score">Word:</label>
-  <input type="text" id="word" name="word_to_score">
+  <label for="word_to_score">Word(s) to Score:</label>
+  <br>
+  <textarea rows="4" cols="50" id="words" name="word_to_score">Enter words seperated by commas </textarea>
   <p>
-    <input type="submit" name="submit" id="submit" value="Score Word">
+    <input type="submit" name="submit_words" id="submit_words" value="Score Words">
   </p>
 </form>
 
@@ -15,10 +17,27 @@
     </p>
   <% else %>
     <p>
-      You have played the word <%= @word %>.
+      <% if @grammar_correct %>
+        Here are the scores for the words you entered:
+      <% else %>
+        Here is the score for the word you entered:
+      <% end %>
+
+      <ul>
+        <% @score_hash.each do |word, score| %>
+        <li>
+          <%= word %> scored <%= score %> points.
+        </li>
+        <% end %>
+      </ul>
+
     </p>
     <p>
-      <%= @word %> is worth <%= @score %> points.
+      <%= @not_legit_word %> <br>
+      <%= @words[0] %>
+      <%= @words %>
     </p>
+
+
   <% end %>
 <% end %>

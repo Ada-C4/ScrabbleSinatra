@@ -16,13 +16,21 @@ class ScrabbleSite < Sinatra::Base
 
   post "/score" do
     @scored_word = true
-    @word = params[:word_to_score]
-    if @word == ""
-      @not_legit_word = true
-    else
-      @not_legit_word = false
+
+    @words = params[:word_to_score].split(',')
+    @words == [] ? (@not_legit_word = true) : (@not_legit_word = false)
+
+    @grammar_correct = @words.length > 1 ? true : false
+
+    @score_hash = {}
+    @words.each do |word|
+      while word.include? " "
+        word.slice! " "
+      end
+      @score_hash[word] = Scrabble.score(word)
     end
-    @score = Scrabble.score(@word)
+
+
 
     erb :score
   end
