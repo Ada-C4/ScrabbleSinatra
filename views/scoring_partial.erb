@@ -1,0 +1,19 @@
+<div>
+  <% if !@word_score.nil? %>
+    <% @word_score.each do |key, value| %>
+      <h1><%= key %> | <%= value %></h1>
+    <% end %>
+  <% end %>
+</div>
+
+<% if !@word_score.nil? %>
+  <% @word_score.keys.each do |word| %>
+  <div>
+    <hr />
+    <h2><%= word %> Score Breakdown</h2>
+    <% word.split("").each do |letter| %>
+      <h3><%= letter %> --> <%= @letter_scores[letter] %></h3>
+    <% end %>
+  </div>
+  <% end %>
+<% end %>

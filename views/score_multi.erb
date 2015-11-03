@@ -5,15 +5,12 @@
   <title>Score</title>
 </head>
 <body>
-  <% if !@words.nil? %>
-    <% @scores.each do |key, value| %>
-      <h1><%= key %> | <%= value %></h1>
-    <% end %>
-  <% end %>
+  <%= erb :scoring_partial %>
+
   <form action="#" method="post">
     <p>
       <label for="words">WORDS:</label>
-      <textarea rows="1" cols="50" name="words" id="words"></textarea>
+      <textarea rows="1" cols="50" name="words" id="words" required></textarea>
     </p>
     <p>
       <input type="submit" name="submit" id="submit" value="Score Words">

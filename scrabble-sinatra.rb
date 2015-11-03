@@ -3,6 +3,15 @@ require "./lib/scrabble_master"
 
 class ScrabbleSinatra < Sinatra::Base
 
+  def word_scoring
+    @word_score = {}
+    @letter_scores = Scrabble::Scrabble::SCORES
+
+    @words.each do |word|
+      @word_score[word.upcase] = Scrabble::Scrabble.score(word)
+    end
+  end
+
   get "/" do
     erb :index
   end
@@ -16,8 +25,9 @@ class ScrabbleSinatra < Sinatra::Base
   end
 
   post "/score" do
-    @word = params[:word]
-    @score = Scrabble::Scrabble.score(@word)
+    @words = [params[:words].split(" ").first]
+
+    word_scoring
 
     erb :score
   end
@@ -28,11 +38,8 @@ class ScrabbleSinatra < Sinatra::Base
 
   post "/score_multi" do
     @words = params[:words].split(" ")
-    @scores = {}
 
-    @words.each do |word|
-      @scores[word] = Scrabble::Scrabble.score(word)
-    end
+    word_scoring
 
     erb :score_multi
   end

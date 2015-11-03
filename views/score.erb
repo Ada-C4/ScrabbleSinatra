@@ -5,13 +5,12 @@
   <title>Score</title>
 </head>
 <body>
-  <% if !@word.nil? %>
-    <h1><%= @word %> | <%= @score %></h1>
-  <% end %>
+  <%= erb :scoring_partial %>
+
   <form action="#" method="post">
     <p>
-      <label for="word">WORD:</label>
-      <input type="word" id="word" name="word" required>
+      <label for="words">WORD:</label>
+      <input type="text" id="words" name="words" required>
     </p>
     <p>
       <input type="submit" name="submit" id="submit" value="Score Word">
