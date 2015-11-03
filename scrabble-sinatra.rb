@@ -1,4 +1,5 @@
 require "sinatra"
+require "./lib/scrabble_module"
 
 class ScrabbleSinatra < Sinatra::Base
   get "/" do
@@ -13,4 +14,12 @@ class ScrabbleSinatra < Sinatra::Base
     erb :score_multiple
   end
 
+  post "/score" do
+    @word = params[:word]
+    @score = Scrabble::Scrabble.score(@word)
+    if @word != ""
+      @word_submitted = true
+    end
+    erb :score
+  end
 end

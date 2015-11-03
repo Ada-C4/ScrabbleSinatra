@@ -1,18 +1,22 @@
-<h1>Let's score your scrabble word!</h1>
+<% if @word_submitted %>
+  <h1>Your word score</h1>
+  <p>
+    <%= @word %>: <%= @score %>
+  </p>
 
-<!-- Please enter your word (form) -->
-
-<div id="scorebox">
-  <form id="score-form" action="#">
-    <fieldset>
-      <legend>Scrabble Scoring</legend>
-
-      <p>
-        <label for="word">Word:</label>
-        <input type="text" name="word" id="word">
-      </p>
-    </fieldset>
-  </form>
-</div>
+<% else %>
+  <h1>Let's score your scrabble word!</h1>
+  <div id="scorebox">
+    <form id="score-form" action="#" method="post">
+      <fieldset>
+        <legend>Scrabble Scoring</legend>
+        <p>
+          <label for="word">Word:</label>
+          <input type="text" name="word" id="word">
+        </p>
+      </fieldset>
+    </form>
+  </div>
+<% end %>
 
 <a href="/">back to home</a>
