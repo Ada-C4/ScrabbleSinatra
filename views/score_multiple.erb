@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Score Multiple Words</title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <h1>Score Multiple Words</h1>
+    <h4>Please enter the words you would like scored, separated by a comma. </h4>
+    <form id="score_words" action="#" method="post">
+      <label for="scrab-words">Words:</label>
+      <br>
+      <textarea rows="5" cols="50" name="words" id="scrab-words"></textarea>
+      <br>
+      <input type="submit" name="submit" id="submit" value="Score">
+    </form>
+    <br>
+    <% if @words_scored %>
+      <h4>The scores for <%= @words_array %> are <%= @word_scores %></h4>
+    <% end %>
+    <br>
+    <a href="/">Home</a>
+  </body>
+</html>
