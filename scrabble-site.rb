@@ -18,6 +18,6 @@ class ScrabbleSite < Sinatra::Base
     word_array.each do |word|
       @word_hash[word] = Scrabble.score(word)
     end
-    erb :score
+    erb :scoring
   end
 end
