@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Scrabble Score</title>
+    <meta charset = "utf-8">
+    <meta name="description" content="Score all your favorite scrabble words easily">
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
+  </head>
+  <body>
+    <header>
+      <h1><%= @header %></h1>
+    </header>
+    <article>
+      <%= yield %>
+    </article>
+    <nav>
+      <a href="/score">Score a Word</a>
+      <br>
+      <a href="/scoremore">Score Multiple Words</a>
+      <br>
+      <a href="/">Return to the Home Page</a>
+    </nav>
+    <footer>
+      <br>
+      Copyright <%= Time.now.year %>
+    </footer>
+  </body>
+</html>
