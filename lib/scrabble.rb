@@ -43,6 +43,18 @@ module Scrabble
       return score
     end
 
+    def self.get_word_breakdown(word)
+      score_breakdown = ""
+      if word.class != String || word == ""
+        return nil
+      end
+      word.downcase.strip.each_char do |letter|
+        score_breakdown += SCORE_HASH[letter].to_s + " + "
+      end
+      word.length == 7 ? (score_breakdown += " 50") : (score_breakdown -= " + ")
+      return score_breakdown
+    end
+
     def self.highest_score_from_array(array_of_words)
       if array_of_words.class != Array || array_of_words == []
         return nil
