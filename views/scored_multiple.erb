@@ -1,0 +1,14 @@
+<h1>Multiple Word Score:</h1>
+<p>
+  <% score_1 = Scrabble::Scrabble.score(@word_1) %>
+  <% score_2 = Scrabble::Scrabble.score(@word_2) %>
+  <% score_3 = Scrabble::Scrabble.score(@word_3) %>
+  <%= "#{@word_1}: #{score_1}" %>
+  <br>
+  <%= "#{@word_2}: #{score_2}" %>
+  <br>
+  <%= "#{@word_3}: #{score_3}" %>
+  <br>
+  <h5>Total:</h5>
+  <%= score_1 + score_2 + score_3 %>
+</p>
