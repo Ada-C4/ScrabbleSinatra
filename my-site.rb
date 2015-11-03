@@ -1,4 +1,7 @@
 require "sinatra"
+require "./lib/scrabble.rb"
+require "./lib/tilebag.rb"
+require "./lib/player.rb"
 
 class MySite < Sinatra::Base
 
