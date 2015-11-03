@@ -1,5 +1,3 @@
-require 'pry'
-
 class Scrabble
   attr_accessor :player_words, :score
 
@@ -74,7 +72,7 @@ class Scrabble
       return best_words[-1]
     else
       return best_words[0]
-    end    
+    end
   end
 end
 

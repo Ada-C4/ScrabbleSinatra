@@ -1,5 +1,18 @@
-<h1> Under Construction </h1>
+<h1> Score </h1>
 <br>
-<img src="construction.jpg" width="500px">
-<br>
-<a href="index">Return to home page</a>
+<form action="#" method="post">
+  <label for="word_to_score">Word:</label>
+  <input type="text" id="word" name="word_to_score">
+  <p>
+    <input type="submit" name="submit" id="submit" value="Score Word">
+  </p>
+</form>
+
+<% if @scored_word %>
+  <p>
+    You have played the word <%= @word %>.
+  </p>
+  <p>
+    <%= @word %> is worth <%= @score %> points.
+  </p>
+<% end %>
