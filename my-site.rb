@@ -17,7 +17,7 @@ class MySite < Sinatra::Base
     bonus = params[:bonus] == "on"
     @words = {}
     @words[word] = {}
-    @words[word][:score] = Scrabble::Scrabble.score(word)
+    @words[word][:score] = Scrabble::Scrabble.score(word, bonus)
     @words[word][:word_breakdown] = Scrabble::Scrabble.get_word_breakdown(word, bonus)
     erb :scoredword
   end
