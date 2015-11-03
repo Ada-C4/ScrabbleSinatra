@@ -33,9 +33,7 @@ module Scrabble
 
     def self.score(word)
       score = 0
-      if word.class != String || word == ""
-        return nil
-      end
+      return nil if word.class != String || word == ""
       word.downcase.strip.each_char do |letter|
         score += SCORE_HASH[letter]
       end
@@ -43,15 +41,16 @@ module Scrabble
       return score
     end
 
-    def self.get_word_breakdown(word)
+    def self.get_word_breakdown(word, bonus = false)
+      return nil if word.class != String || word == ""
+      word.strip!
       score_breakdown = ""
-      if word.class != String || word == ""
-        return nil
+      word.length.times do |n|
+        letter = word[n].downcase
+        score_breakdown += SCORE_HASH[letter].to_s
+        score_breakdown += " + " unless n == word.length - 1
       end
-      word.downcase.strip.each_char do |letter|
-        score_breakdown += SCORE_HASH[letter].to_s + " + "
-      end
-      word.length == 7 ? (score_breakdown += " 50") : (score_breakdown -= " + ")
+      score_breakdown += " + 50" if bonus
       return score_breakdown
     end
 

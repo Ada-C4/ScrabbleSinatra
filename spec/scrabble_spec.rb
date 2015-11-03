@@ -73,6 +73,26 @@ describe Scrabble do
       end
     end
 
+    describe ".get_word_breakdown" do
+      it "returns nil when given an empty String" do
+        expect(Scrabble::Scrabble.get_word_breakdown("")).to be_nil
+      end
+      it "does not accept non-string arguments" do
+        expect(Scrabble::Scrabble.get_word_breakdown(4)).to be_nil
+      end
+      it "strips extra white space" do
+        word = "abcd    "
+        expect(Scrabble::Scrabble.get_word_breakdown(word.strip)).to eq(Scrabble::Scrabble.get_word_breakdown(word))
+      end
+      it "returns the correct breakdown for a word" do
+        expect(Scrabble::Scrabble.get_word_breakdown("Jennie")).to eq("8 + 1 + 1 + 1 + 1 + 1")
+        expect(Scrabble::Scrabble.get_word_breakdown("xYz")).to eq("8 + 4 + 10")
+      end
+      it "returns the correct breakdown for a bonus word" do
+        expect(Scrabble::Scrabble.get_word_breakdown("interact", true)).to eq("1 + 1 + 1 + 1 + 1 + 1 + 3 + 1 + 50")
+      end
+    end
+
 
   end
 
