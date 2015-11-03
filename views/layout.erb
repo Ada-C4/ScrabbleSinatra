@@ -1,0 +1,15 @@
+<%= yield %>
+
+<% if @words != nil
+  @words.each do |word|
+    score = Scrabble::Scrabble.score(word)
+    breakdown = []
+    word.downcase.strip.each_char do |letter|
+      breakdown.push(Scrabble::Scrabble::SCORE_HASH[letter])
+    end
+    joined = breakdown.join(" + ") %>
+    <p>
+      The word <%= word.upcase %> scores <%= score %> point<%= "s" if score != 1 %>! (<%=joined%>)
+    </p>
+  <% end %>
+<% end %>
