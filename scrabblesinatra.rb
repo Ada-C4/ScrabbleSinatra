@@ -12,10 +12,10 @@ class SinatraScrabble < Sinatra::Base
     erb :score
   end
 
-  post "/scores" do
+  post "/score" do
     @word = params[:user_input]
-    @word.score(word)
-    erb: score
+    @score = Scrabble::ScrabbleGame.score(@word)
+    erb :score
   end
 
   post "/multiple_scores" do
