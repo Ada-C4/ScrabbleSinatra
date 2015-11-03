@@ -1,7 +1,5 @@
 require "sinatra"
 require "./lib/scrabble.rb"
-require "./lib/tilebag.rb"
-require "./lib/player.rb"
 
 class MySite < Sinatra::Base
 
@@ -14,7 +12,9 @@ class MySite < Sinatra::Base
   end
 
   post "/score" do
-    erb params
+    @word = params[:word]
+    @score = Scrabble::Scrabble.score(@word)
+    erb :scoredword
   end
 
   get "/scoremany" do
