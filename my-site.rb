@@ -10,4 +10,8 @@ class MySite < Sinatra::Base
     erb :score
   end
 
+  get "/scoremany" do
+    erb :scoremany
+  end
+
 end
