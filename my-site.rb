@@ -13,6 +13,10 @@ class MySite < Sinatra::Base
     erb :score
   end
 
+  post "/score" do
+    erb params
+  end
+
   get "/scoremany" do
     erb :scoremany
   end

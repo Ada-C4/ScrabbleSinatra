@@ -1,0 +1,45 @@
+/*!
+ * Start Bootstrap - The Big Picture HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+* {
+  color: #F2CB05;
+}
+
+body {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	background: none;
+}
+
+.full {
+  background: url(scrabble_background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.centered-block {
+  margin: auto;
+  max-width: 600px;
+}
+
+.brown-box {
+  min-height: 400px;
+  background: rgba(140, 80, 44, .9);
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px solid #000000;
+  padding: 20px;
+}
+
+.btn:hover {
+  background: #539DCE;
+}
+
+.top-padding {
+  padding-top: 20px;
+}
