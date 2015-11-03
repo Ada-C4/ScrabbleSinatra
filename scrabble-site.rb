@@ -10,4 +10,8 @@ class ScrabbleSite < Sinatra::Base
     erb :score
   end
 
+  post "/score" do
+    erb :score
+  end
+
 end
