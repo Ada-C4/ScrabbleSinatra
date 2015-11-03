@@ -5,7 +5,12 @@
   <title>Score</title>
 </head>
 <body>
-  <h1>COMING SOON!</h1>
-  <img src="https://alexoloughlinintensestudy.files.wordpress.com/2014/03/hardhat-cat.jpg" />
+  <% if !@word.nil? %>
+    <h1><%= @word %> | <%= @score %></h1>
+  <% end %>
+  <form action="#" method="post">
+      <label for="word">WORD:</label>
+      <input type="word" id="word" name="word">
+  </form>
 </body>
 </html>
