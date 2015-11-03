@@ -20,9 +20,10 @@
     </form>
 
     <% if @words != nil
-      @words.each do |word| %>
+      @words.each do |word|
+        score = Scrabble::Scrabble.score(word) %>
         <p>
-          The word <%= word.upcase %> scores <%= Scrabble::Scrabble.score(word) %> points!
+          The word <%= word.upcase %> scores <%= score %> point<%= "s" if score != 1 %>!
         </p>
       <% end %>
     <% end %>
