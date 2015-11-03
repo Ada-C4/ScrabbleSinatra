@@ -5,6 +5,19 @@
     <meta charset="UTF-8">
   </head>
   <body>
-    <h1>Coming Soon!</h1>
+    <h1>Score A Word</h1>
+    <h4>Please enter the word you would like scored. </h4>
+    <form id="score_word" action="#" method="post">
+      <label for="scrab-word">Word:</label>
+      <input type="text" id="scrab-word" name="word">
+      <br>
+      <input type="submit" name="submit" id="submit" value="Score">
+    </form>
+    <br>
+    <% if @word_scored %>
+      <h3> The score of <%= @word %> is: <%= @word_score %></h3>
+    <% end %>
+    <br>
+    <a href="/">Home</a>
   </body>
 </html>
