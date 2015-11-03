@@ -2,18 +2,19 @@
   <h1>Score A Word</h1>
 
   <% if @score.nil? %>
+    <% @label = "Please enter a word to score:" %>
 
   <% else %>
     <p>
       The score of <strong><%= @word %></strong> is <strong><%= @score %></strong>
     </p>
     <p>
-      Score another word:
+      <% @label = "Score another word:" %>
     </p>
   <% end %>
 
   <form action="#" method="post">
-  <label for="word">Word:</label>
+  <label for="word"><%= @label %></label><br>
   <input type="text" id="word" name="word">
   <br>
   <br>

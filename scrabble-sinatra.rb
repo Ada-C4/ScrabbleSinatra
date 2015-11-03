@@ -21,4 +21,18 @@ class ScrabbleSite < Sinatra::Base
     erb :scoremore
   end
 
+  post "/scoremore" do
+    all_words = params[:words]
+    word_array = all_words.split(/\W+/)
+    @word_hash = {}
+
+    word_array.each do |word|
+      score = Scrabble::Scrabble.score(word)
+      @word_hash[word] = score
+    end
+    erb :scoremore
+  end
+
+
+
 end

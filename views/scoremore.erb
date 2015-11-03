@@ -1,4 +1,32 @@
 <html>
   <h1>Score Multiple Words</h1>
-  <h3>Coming Soon!</h3>
+  <% if @word_hash.nil? %>
+    <% @label = "Please enter the words you would like to score:" %>
+  <% else %>
+    <p>
+      <% @word_hash.each do |word, score| %>
+      The score of <strong><%= word %></strong> is <strong><%= score %></strong>
+      <br>
+      <% end %>
+      <% @total_score = 0 %>
+      <% @word_hash.each do |word, score| %>
+      <% @total_score += score %>
+      <% end %>
+      <p>
+        The total score of all your words is <strong><%= @total_score %></strong>
+      </p>
+
+    </p>
+    <% @label = "Score more words:" %>
+   <% end %>
+
+  <form action="#" method="post">
+  <label for="words"><%= @label %></label>
+  <br>
+  <textarea rows="10" cols="20" id="words" name="words"></textarea>
+  <br>
+  <br>
+  <input type="submit" name="submit" id="submit" value="Submit Words">
+
+</form>
 </html>
