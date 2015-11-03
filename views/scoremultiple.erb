@@ -4,7 +4,7 @@
     <title>Scrabble Word Scorer</title>
   </head>
   <body>
-    <h1> SCORE </h1>
+    <h1> SCORES </h1>
 
     <form id="multiple_words" action="#" method="post">
       <fieldset>
@@ -19,6 +19,12 @@
       </fieldset>
     </form>
 
-    <%= @words %>
+    <% if @words != nil
+      @words.each do |word| %>
+        <p>
+          The word <%= word.upcase %> scores <%= Scrabble::Scrabble.score(word) %> points!
+        </p>
+      <% end %>
+    <% end %>
   </body>
 </html>
