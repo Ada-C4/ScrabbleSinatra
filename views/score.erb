@@ -1,6 +1,6 @@
 <h2><%= @page_name %></h2>
-<div id="score">
-  <form id="score-form" action="#" method="post">
+<div id="word_input">
+  <form id="word-form" action="#" method="post">
     <fieldset>
       <legend>Word</legend>
         <p>
@@ -9,4 +9,8 @@
         </p>
     </fieldset>
   </form>
+</div>
+
+<div id="score_display">
+  <p>The score for that word is <%= @score %></p>
 </div>

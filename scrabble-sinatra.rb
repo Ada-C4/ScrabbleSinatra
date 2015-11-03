@@ -15,6 +15,13 @@ class ScrabbleSinatra < Sinatra::Base
     erb :score
   end
 
+  post "/score" do
+    @page_name = "Score a Word"
+    word = params[:word]
+    @score = Scrabble::ScrabbleGame.score(word)
+    erb :score
+  end
+
   get "/score_multiple" do
     @page_name = "Score some Words"
     erb :score_multiple
