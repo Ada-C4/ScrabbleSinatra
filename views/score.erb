@@ -1,14 +1,29 @@
 <h1>Scrabble Score Page</h1>
 
-<p>For the word "<%= @word %>", your score is [WORKING ON THIS]</p>
+<% if @score %>
+  <% @words_hash.each do |word1, score1| %>
+    <p>For the word "<%= word1 %>", your score is <%= score1 %>.</p>
+    <p>The breakdown for that score is as follows:</p>
+    <ul>
+      <% @letters_hash.each do |word, score| %>
+        <% if word1 == word %>
+          <% score.each do |letter, score| %>
+            <li><%= "#{letter}: #{score}" %></li>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
 
-<p>Using the form below, please enter a word you would like to score.</p>
+<p>Please enter words you would like to score below, separated by commas.</p>
 
 <form action="./score" method="post">
     <label for="word">
-      <span class="word">Word: </span>
+      <span class="word">Words:</span>
     </label>
-    <input type="text" name="word" id="word">
+    <br>
+    <textarea rows="10" cols="50" name="word" id="word"></textarea>
     <br><br>
     <button type="submit" value="Submit">Submit</button>
 </form>

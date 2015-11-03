@@ -36,7 +36,7 @@ module ScrabbleMod
         #create variable for word score
         word_score = 0
         #split word into array of characters - downcased
-        word_array = word.downcase.split("")
+        word_array = word.downcase.strip.split("")
         #convert letters to symbols
         #look up score for each symbol and add it to word score variable
         word_array.each do |letter|
@@ -45,6 +45,25 @@ module ScrabbleMod
         #add 50 points if the word has 7 letters and return word score variable
         word_score += 50 if word.length == 7
         return word_score
+      else
+        return "Error message"
+      end
+    end
+
+    def self.score_by_letters(word)
+      if word.is_a? String
+        word_array = word.downcase.strip.split("")
+        word_hash = {}
+        word_array.each do |letter|
+          word_hash[letter] = SCORES[letter.to_sym]
+        end
+
+        if word.length == 7
+          bonus = true
+        else
+          bonus = false
+        return word_hash, bonus
+        end
       else
         return "Error message"
       end
