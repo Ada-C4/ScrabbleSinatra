@@ -1,5 +1,3 @@
-require 'pry'
-
 class Scrabble
   attr_accessor :player_words, :score
 
@@ -13,11 +11,11 @@ class Scrabble
         raise ArgumentError, "Input must be a string."
     else
       # Check that each character of the given string is alphabetical
-      word.length.times do |letter|
-        if !("a".."z").to_a.include? word[letter]
-            raise ArgumentError, "Input must be an alphabetical string."
-        end
-      end
+      # word.length.times do |letter|
+      #   if !("a".."z").to_a.include? word[letter]
+      #       raise ArgumentError, "Input must be an alphabetical string."
+      #   end
+      # end
     end
 
     @score = 0
@@ -74,7 +72,7 @@ class Scrabble
       return best_words[-1]
     else
       return best_words[0]
-    end    
+    end
   end
 end
 

@@ -13,7 +13,11 @@ class ScrabbleSite < Sinatra::Base
 
   post "/score" do
     word = params[:word]
-    @word_score = Scrabble.score(word)
+    word_array = word.split(" ")
+    @word_hash = {}
+    word_array.each do |word|
+      @word_hash[word] = Scrabble.score(word)
+    end
     erb :score
   end
 end
