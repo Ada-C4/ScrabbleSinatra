@@ -1,2 +1,2 @@
-require './scrabble'
-run Scrabble
+require './sinatra_scrabble'
+run ScrabbleSinatra
