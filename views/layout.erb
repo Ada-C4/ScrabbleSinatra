@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @title %></title>
+  <meta charset="utf-8">
+  <link href="css/main.css" rel="stylesheet">
+  <link rel="shortcut icon" href="icons/face.png" />
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+  <%= yield %>
+
+  <footer>
+    <p>
+      <% require 'date' %>
+      <% @time_now = Time.new %>
+      &copy <%= Date.today.strftime("%B") %>
+      <%= @time_now.year %>
+    </p>
+  </footer>
+
+</body>
+
+</html>
