@@ -1,0 +1,41 @@
+<h1>Scrabble Score Page</h1>
+
+<% if @score %>
+  <% @words_hash.each do |word1, score1| %>
+    <p>For the word "<%= word1 %>", your score is <%= score1 %>.</p>
+    <p>The breakdown for that score is as follows:</p>
+    <ul>
+      <% @letters_hash.each do |word, score| %>
+        <% if word1 == word %>
+          <% score.each do |letter, score| %>
+            <li><%= "#{letter}: #{score}" %></li>
+          <% end %>
+          <% if @bonus %>
+            <li>Plus 50 points for using all 7 letters!</li>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
+
+<fieldset>
+<p>How would you like your Scrabble word(s) scored?</p>
+
+  <form action="/score" method="post">
+    <input type="radio" name="scrabble_rules" id="scrabble_rules" value="default">
+    <label for="scrabble_rules">Default: 7-letters highest</label>
+    <br>
+    <input type="radio" name="scrabble_rules" id="scrabble_rules" value="shortest">
+    <label for="scrabble_rules">Shortest word wins</label>
+<br>
+  <p>Please enter words you would like to score below, separated by commas.</p>
+
+  <form action="/score" method="post">
+      <label for="word"><span class="word">Words:</span></label>
+      <br>
+      <textarea rows="10" cols="50" name="word" id="word"></textarea>
+      <br><br>
+      <button type="submit" value="Submit">Submit</button>
+  </form>
+</fieldset>
