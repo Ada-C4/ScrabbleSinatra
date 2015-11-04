@@ -35,6 +35,10 @@ h1 {
   font-size: 60px;
 }
 
+h2 {
+  font-size: 45px; 
+}
+
 h1, h2 {
   text-align: center;
 }
@@ -53,4 +57,8 @@ li {
 
 footer {
   margin-top: 100px;
+}
+
+#total_score {
+  font-size: 20px;
 }
