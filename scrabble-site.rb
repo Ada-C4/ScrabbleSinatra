@@ -23,6 +23,7 @@ class ScrabbleSinatra < Sinatra::Base
   post "/scoremultiple" do
     @words = params[:multiple_words].split(",")
     @words.map! { |word| word.strip }
+    @style = params[:score_style]
     erb :scoremultiple
   end
 

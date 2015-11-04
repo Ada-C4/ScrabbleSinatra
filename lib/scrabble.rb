@@ -39,7 +39,7 @@ module Scrabble
       word.downcase.strip.each_char do |letter|
         score += SCORE_HASH[letter]
       end
-      score += 50 if word.length == 7
+      # score += 50 if word.length >= 7
       return score
     end
 

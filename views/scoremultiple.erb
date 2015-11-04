@@ -9,13 +9,21 @@
     <form id="multiple_words" action="#" method="post">
       <fieldset>
         <legend>Score a bunch of words!</legend>
-        <p>
+          <p>
           <!-- the "for" in label and the "id" in input have to match -->
-          <label for="multiple_words">Words, separated by commas:</label>
+            <label for="multiple_words">Words, separated by commas:</label>
+          </p>
           <p>
             <textarea rows="2" cols="50" name="multiple_words" id="multiple_words"></textarea>
           </p>
-          <input type="submit" value="Score!">
+          <legend>Tie-break Preference:</legend>
+          <!-- usually name and id are the same, here they are not since there is only one answer allowed -->
+          <input type="radio" name="score_style" id="seven_best" value="0"><label for="seven_best">Word with 7+ letters wins</label>
+          <br><input type="radio" name="score_style" id="short_best" value="1"><label for="short_best">Shortest word wins</label>
+
+          <p>
+            <input type="submit" value="Score!">
+          </p>
       </fieldset>
     </form>
 
