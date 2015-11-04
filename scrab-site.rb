@@ -12,8 +12,13 @@ class ScrabbleSite < Sinatra::Base
   end
 
   post "/score" do
-      @word_being_scored = params[:word].upcase
-      @points = Scrabble::Scrabble.score(@word_being_scored)
+      @word_scores_array = []
+      input_being_scored = params[:word]
+      @word_being_scored_array = input_being_scored.split(" ")
+      @word_being_scored_array.each do |split_word|
+        points = Scrabble::Scrabble.score(split_word.upcase)
+        @word_scores_array.push(points.to_s)
+      end
       @scored = "true"
       erb :score
   end
