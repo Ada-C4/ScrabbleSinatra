@@ -4,17 +4,20 @@
   <meta charset="UTF-8">
   <title>Score</title>
 </head>
-<body>
-  <%= erb :scoring_partial %>
+  <body>
+    <form action="#" method="get">
+      <fieldset>
+        <legend>Score A Word!!</legend>
+        <p>
+          <label for="words">WORD:</label>
+          <input type="text" id="words" name="words" required>
+        </p>
+        <p>
+          <input type="submit" name="submit" id="submit" value="Score">
+        </p>
 
-  <form action="#" method="post">
-    <p>
-      <label for="words">WORD:</label>
-      <input type="text" id="words" name="words" required>
-    </p>
-    <p>
-      <input type="submit" name="submit" id="submit" value="Score Word">
-    </p>
-  </form>
-</body>
+        <%= erb :scoring_partial %>
+      </fieldset>
+    </form>
+  </body>
 </html>

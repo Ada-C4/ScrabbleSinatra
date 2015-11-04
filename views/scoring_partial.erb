@@ -1,19 +1,35 @@
-<div>
+<table border="1">
   <% if !@word_score.nil? %>
-    <% @word_score.each do |key, value| %>
-      <h1><%= key %> | <%= value %></h1>
-    <% end %>
-  <% end %>
-</div>
+  <tr>
+    <thead>
+      <th>Word</th>
+      <th>Breakdown</th>
+      <th>Score</th>
+    </thead>
+  </tr>
+    <% hash_power = @word_score.keys.sort_by do |word|
+       @word_score[word]
+    end.reverse %>
 
-<% if !@word_score.nil? %>
-  <% @word_score.keys.each do |word| %>
-  <div>
-    <hr />
-    <h2><%= word %> Score Breakdown</h2>
-    <% word.split("").each do |letter| %>
-      <h3><%= letter %> --> <%= @letter_scores[letter] %></h3>
+    <% hash_power.each do |key| %>
+      <% equation = key.split("").map do |letter|
+           @letter_scores[letter]
+         end %>
+
+      <% if @bonus && key.length == 7 %>
+        <% equation.push("50 POINT BONUS!") %>
+      <% end %>
+      <tr>
+        <td>
+          <%= key %>
+        </td>
+        <td>
+          <%= equation.join(" + ") %>
+        </td>
+        <td>
+          <%= @word_score[key] %>
+        </td>
+      </tr>
     <% end %>
-  </div>
   <% end %>
-<% end %>
+</table>

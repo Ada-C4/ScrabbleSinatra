@@ -9,6 +9,10 @@ class ScrabbleSinatra < Sinatra::Base
 
     @words.each do |word|
       @word_score[word.upcase] = Scrabble::Scrabble.score(word)
+
+      if !@bonus && word.length == 7
+        @word_score[word.upcase] -= 50
+      end
     end
   end
 
@@ -21,13 +25,12 @@ class ScrabbleSinatra < Sinatra::Base
   end
 
   get "/score" do
-    erb :score
-  end
+    if !params[:words].nil?
+      @words = [params[:words].split(" ").first]
+      @bonus = true
 
-  post "/score" do
-    @words = [params[:words].split(" ").first]
-
-    word_scoring
+      word_scoring
+    end
 
     erb :score
   end
@@ -38,6 +41,7 @@ class ScrabbleSinatra < Sinatra::Base
 
   post "/score_multi" do
     @words = params[:words].split(" ")
+    @bonus = params[:bonus] == "yes_bonus"
 
     word_scoring
 

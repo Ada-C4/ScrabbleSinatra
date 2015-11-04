@@ -5,16 +5,33 @@
   <title>Score</title>
 </head>
 <body>
-  <%= erb :scoring_partial %>
-
   <form action="#" method="post">
-    <p>
-      <label for="words">WORDS:</label>
-      <textarea rows="1" cols="50" name="words" id="words" required></textarea>
-    </p>
-    <p>
-      <input type="submit" name="submit" id="submit" value="Score Words">
-    </p>
+    <fieldset>
+      <legend>Score Some Words!!</legend>
+      <div>
+        <p>
+          <label for="words">WORDS:</label>
+          <textarea rows="1" cols="50" name="words" id="words" required></textarea>
+        </p>
+      </div>
+      <div>
+        <h3>7-letter Word Scoring Options</h3>
+        <p>
+          <input type="radio" name="bonus" id="word_bonus" value="yes_bonus" required><label for="word_bonus">Bonus</label>
+        </p>
+        <p>
+          <input type="radio" name="bonus" id="no_bonus" value="no_bonus" required><label for="no_bonus">No Bonus</label>
+        </p>
+      </div>
+      <div>
+        <p>
+          <input type="submit" name="submit" id="submit" value="Score">
+        </p>
+      </div>
+
+      <%= erb :scoring_partial %>
+
+    </fieldset>
   </form>
 </body>
 </html>
