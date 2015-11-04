@@ -4,7 +4,7 @@ require "./lib/highest_score.rb"
 
 class SinatraScrabble < Sinatra::Base
 
-  def multiple_scores
+  def score_prompt
     erb :score_prompt
   end
 

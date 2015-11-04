@@ -4,7 +4,7 @@
       <% else %>
       <% @multiple_word_score.each do |word, score|%>
       <% @word, @score = word, score %>
-      <%= multiple_scores %>
+      <%= score_prompt %>
       <% end %>
       <p><strong>Your total score is <%= @total %>.</strong></p>
     <% end %>
