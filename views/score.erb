@@ -2,10 +2,7 @@
     <% @label = "Please enter a word to score:" %>
 
   <% else %>
-    <p>
-      
-      The score of <strong><%= @word %></strong> is <strong><%= @score %></strong>
-    </p>
+    <%= score_word_display %>
     <p>
       <% @label = "Score another word:" %>
     </p>

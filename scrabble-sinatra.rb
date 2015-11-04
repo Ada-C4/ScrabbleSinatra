@@ -3,6 +3,10 @@ require "./lib/scrabble_master"
 
 class ScrabbleSite < Sinatra::Base
 
+  def score_word_display
+    erb :score_word_display
+  end
+
   get "/" do
     @header = "Scrabble Score"
     erb :index

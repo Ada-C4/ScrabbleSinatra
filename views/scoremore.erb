@@ -3,17 +3,16 @@
   <% else %>
     <p>
       <% @word_hash.each do |word, score| %>
-      The score of <strong><%= word %></strong> is <strong><%= score %></strong>
-      <br>
+      <% @word, @score = word, score %>
+      <%= score_word_display %>
       <% end %>
-      <% @total_score = 0 %>
-      <% @word_hash.each do |word, score| %>
-      <% @total_score += score %>
-      <% end %>
-      <p>
-        The total score of all your words is <strong><%= @total_score %></strong>
-      </p>
-
+    </p>
+    <% @total_score = 0 %>
+    <% @word_hash.each do |word, score| %>
+    <% @total_score += score %>
+    <% end %>
+    <p>
+      The total score of all your words is <strong><%= @total_score %></strong>
     </p>
     <% @label = "Score more words:" %>
    <% end %>
