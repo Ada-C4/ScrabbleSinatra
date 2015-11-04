@@ -1,0 +1,34 @@
+<% if @words_submitted %>
+  <h1>Your word scores</h1>
+  <div class="score-box">
+    <% @words.each do |word| %>
+      <p><%= word %>: <%= Scrabble::Scrabble.score(word) %> </p>
+      <% word.split(//).each do |letter| %>
+        <p><%= letter %>: <%= Scrabble::Scrabble.letter_score(letter.upcase) %> </p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <a class="button" href="/score_multiple">Score more words</a>
+
+<% else %>
+<!--Lots of duplication here and in the score.erb file. Not sure how to use partials to DRY it up :(  -->
+  <h1>Let's score your scrabble words!</h1>
+
+  <img class="image" src="http://www.ericharshbarger.org/scrabble/images/banner.jpg" alt="Scrabble">
+
+  <div class="score-box">
+    <p>
+      Please enter your words, separated by commas.
+    </p>
+    <form id="score-form" action="#" method="post">
+      <p>
+        <label for="words">Words:</label>
+        <input type="text" name="words" id="words">
+      </p>
+      <input class="button" type="submit" id="submit" name="submit" value="Submit">
+    </form>
+  </div>
+<% end %>
+
+<a class="button" href="/">Home</a>
