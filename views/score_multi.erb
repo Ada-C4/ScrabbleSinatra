@@ -1,0 +1,28 @@
+<form action="#" method="post">
+  <fieldset>
+    <legend>Score Some Words!!</legend>
+    <div>
+      <p>
+        <label for="words">WORDS:</label>
+        <textarea rows="1" cols="50" name="words" id="words" required></textarea>
+      </p>
+    </div>
+    <div>
+      <h4>7-letter Word Scoring Options</h4>
+      <p>
+        <input type="radio" name="bonus" id="word_bonus" value="yes_bonus" required><label for="word_bonus">Bonus</label>
+      </p>
+      <p>
+        <input type="radio" name="bonus" id="no_bonus" value="no_bonus" required><label for="no_bonus">No Bonus</label>
+      </p>
+    </div>
+    <div>
+      <p>
+        <input type="submit" name="submit" id="submit" value="Score">
+      </p>
+    </div>
+
+    <%= erb :scoring_partial %>
+
+  </fieldset>
+</form>

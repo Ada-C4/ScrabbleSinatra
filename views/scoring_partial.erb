@@ -1,0 +1,36 @@
+<% if !@word_score.nil? %>
+  <table border="1">
+    <tr>
+      <thead>
+        <th>WORD</th>
+        <th>BREAKDOWN</th>
+        <th>SCORE</th>
+      </thead>
+    </tr>
+
+    <% hash_power = @word_score.keys.sort_by do |word|
+       @word_score[word]
+    end.reverse %>
+
+    <% hash_power.each do |key|
+      equation = key.split("").map do |letter|
+         @letter_scores[letter]
+      end %>
+
+      <% if @bonus && key.length == 7
+        equation.push("50 POINT BONUS!")
+      end %>
+      <tr>
+        <td>
+          <%= key %>
+        </td>
+        <td>
+          <%= equation.join(" + ") %>
+        </td>
+        <td>
+          <%= @word_score[key] %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
