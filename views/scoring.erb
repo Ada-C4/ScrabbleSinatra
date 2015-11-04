@@ -1,0 +1,19 @@
+<div>
+  <h1>Word Scores</h1>
+  <% @word_hash.each do |key, value| %>
+  <p>
+    The score of <%= key %> is <%= value %>
+  </p>
+    <% end %>
+
+  <h2>The letter breakdown is as follows</h2>
+  <fieldset>
+    <% @letter_hash.each do |key, value| %>
+    <p>
+    The score of <%= key %> is <%= value %>
+    </p>
+    <% end %>
+  </fieldset>
+
+  <h3>Click <a href="/score">here</a> to score again!</h3>
+</div>
