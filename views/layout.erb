@@ -1,0 +1,47 @@
+<%= yield %>
+
+<% if @words != nil
+  @words.sort_by! do |word|
+    Scrabble::Scrabble.score(word)
+  end
+  @words.reverse!
+
+  @words.each do |word|
+    score = Scrabble::Scrabble.score(word)
+    breakdown = []
+    word.downcase.strip.each_char do |letter|
+      breakdown.push(Scrabble::Scrabble::SCORE_HASH[letter])
+    end
+    # if breakdown.length >=7
+    #   breakdown.push("50 point bonus")
+    # end
+    joined = breakdown.join(" + ") %>
+    <p>
+      The word <%= word.upcase %> scores <%= score %> point<%= "s" if score != 1 %>! (<%=joined%>)
+    </p>
+  <% end %>
+
+  <% max_score = Scrabble::Scrabble.score(@words[0])
+  winners = @words.find_all do |word|
+    Scrabble::Scrabble.score(word) == max_score
+  end %>
+
+  <% if @style == "0"
+    best_winner = winners.find do |winner|
+      winner.length >= 7
+    end
+    best_winner ||= winners[0] %>
+    <p>
+      <strong>The winner is <%= best_winner.upcase %>!</strong>
+    </p>
+  <% elsif @style == "1"
+    best_winner = winners.min_by do |winner|
+      winner.length
+  end %>
+    <p>
+      <strong>The winner is <%= best_winner.upcase %>!</strong>
+    </p>
+  <% end %>
+
+
+<% end %>
