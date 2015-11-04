@@ -1,0 +1,20 @@
+    <h4>Please enter the words you would like scored, separated by a comma. </h4>
+    <p>Example: toast, love, crouton, sushi</p>
+    <form id="score_words" action="#" method="post">
+      <label for="scrab-words">Words:</label>
+      <br>
+      <textarea rows="5" cols="50" name="words" id="scrab-words"></textarea>
+      <br>
+      <input type="submit" name="submit" id="submit" value="Score">
+    </form>
+    <br>
+    <% if @words_scored %>
+    <h4> Your scored words: </h4>
+      <%@words_with_scores.each do |word, score|%>
+        <p>
+          <%= word %>: <%= score%>
+        </p>
+      <% end %>
+    <% end %>
+    <br>
+    <a href="/">Home</a>
