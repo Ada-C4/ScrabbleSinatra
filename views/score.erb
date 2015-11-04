@@ -1,5 +1,15 @@
 <h1>Scrabble Score Calculator</h1>
-<form id="score" action="#">
-  <label for="word">Word to score:</label>
-  <input type="text" id="word" name="word">
+
+<% if @scored == "true" %>
+  <p>
+    The score of <%= @word %> is <%= @points %>
+  </p>
+<% end %>
+
+<form id="score" action="#" method="post">
+
+    <label for="word">Word to score:</label>
+    <input type="text" id="word" name="word">
+
+  <input type="submit" name="submit" value="Calculate">
 </form>
