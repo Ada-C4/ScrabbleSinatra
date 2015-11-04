@@ -11,7 +11,8 @@ module Scrabble
     }
 
     def self.score(word)
-      if (word[/^[a-zA-Z]+/] != word) || !(Dictionary.valid_word?(word)) #Check if it only has letters AND is a valid word
+      if (word[/^[a-zA-Z]+/] != word)
+        # || !(Dictionary.valid_word?(word)) #Check if it only has letters AND is a valid word
         return "That is not a valid word."
       elsif word.length > 7
         return "Cannot have more than seven letters."
