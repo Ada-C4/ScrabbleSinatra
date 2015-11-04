@@ -1,7 +1,11 @@
 <h1>Scrabble Score Calculator</h1>
 
 <% if @scored == "true" %>
-  <%= @words_and_scores_hash%>
+  <% @words_and_scores_hash.each do |word, score| %>
+    <p>
+      The score for <%= word %> is <%= score %>
+    </p>
+  <% end %>
 <% end %>
 
 
