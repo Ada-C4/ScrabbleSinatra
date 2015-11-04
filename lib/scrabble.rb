@@ -31,9 +31,14 @@ module Scrabble
        "z" => 10,
     }
 
+    def self.word?(word)
+      return false if word.class != String || word == ""
+      return true
+    end
+
     def self.score(word, bonus = false)
+      return nil if !Scrabble.word?(word)
       score = 0
-      return nil if word.class != String || word == ""
       word.downcase.strip.each_char do |letter|
         score += SCORE_HASH[letter]
       end
@@ -42,7 +47,7 @@ module Scrabble
     end
 
     def self.get_word_breakdown(word, bonus = false)
-      return nil if word.class != String || word == ""
+      return nil if !Scrabble.word?(word)
       word.strip!
       score_breakdown = ""
       word.length.times do |n|
