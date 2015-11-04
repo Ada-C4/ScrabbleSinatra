@@ -21,13 +21,31 @@ class SinatraScrabble < Sinatra::Base
     @words_hash = {}
     @letters_hash = {}
     words = params[:word].split(",")
-    words.each do |word|
-      score = ScrabbleMod::Scrabble.score(word)
-      @words_hash[word] = score
-      score_by_letter, @bonus = ScrabbleMod::Scrabble.score_by_letters(word)
-      @letters_hash[word] = score_by_letter
+    @rules = params[:scrabble_rules]
+    if params[:scrabble_rules] == "shortest"
+      words.each do |word|
+        score, bonus = ScrabbleMod::Scrabble.score(word)
+        if bonus == true
+          score -= 50
+        end
+        @words_hash[word] = score
+        score_by_letter, @bonus = ScrabbleMod::Scrabble.score_by_letters(word)
+        @letters_hash[word] = score_by_letter
+      end
+      @bonus = false
+    else
+      words.each do |word|
+        score, bonus = ScrabbleMod::Scrabble.score(word)
+        @words_hash[word] = score
+        score_by_letter, @bonus = ScrabbleMod::Scrabble.score_by_letters(word)
+        @letters_hash[word] = score_by_letter
+      end
     end
     erb :score
+  end
+
+  get "/score" do
+    
   end
 
 end

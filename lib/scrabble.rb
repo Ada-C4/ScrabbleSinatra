@@ -43,8 +43,13 @@ module ScrabbleMod
           word_score += SCORES[letter.to_sym]
         end
         #add 50 points if the word has 7 letters and return word score variable
-        word_score += 50 if word.length == 7
-        return word_score
+        if word.length == 7
+          bonus = true
+          word_score += 50
+        else
+          bonus = false
+        end
+        return word_score, bonus
       else
         return "Error message"
       end
