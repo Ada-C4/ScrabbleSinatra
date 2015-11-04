@@ -1,0 +1,27 @@
+body {
+  background-color: #33CCCC;
+  margin: 0 auto;
+}
+
+fieldset {
+  background-color: #D4AAFF;
+  font-family: sans-serif;
+}
+
+div#header {
+  margin: 0 auto;
+  width: 500 px;
+}
+
+h1 {
+  font-family: sans-serif;
+}
+
+div#form {
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #D4AAFF;
+  border: 2px black solid;
+  width: 400px;
+}
+
