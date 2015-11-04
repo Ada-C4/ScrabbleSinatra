@@ -16,11 +16,8 @@ class ScrabbleSite < Sinatra::Base
 
   post "/score" do
     @words_scored = true
-    @words_played = params[:words]
-    @word_array = @words_played.split(" ")
-    @word_scores_hash = Scrabble::Scrabble.create_word_score_hash(@word_array)
+    @words_played = params[:words].split(" ")
+    @word_scores_hash = Scrabble::Scrabble.create_word_score_hash(@words_played)
     erb :score
   end
-
-
 end
