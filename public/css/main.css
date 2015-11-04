@@ -1,0 +1,64 @@
+
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#home_p {
+  display: block;
+  text-align: center;
+}
+
+#words {
+  display:block;
+  margin-left:auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+
+#words_label {
+  display: block;
+  text-align: center;
+}
+
+#submit_words {
+  margin-left: 250px;
+  font-size: 60px;
+  width: 200px;
+  height: 150px;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+h2 {
+  font-size: 45px; 
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+.word_scores, ul {
+  font-size: 20px;
+}
+
+.word_scores {
+  text-align: center;
+}
+
+li {
+  margin-left: 200px;
+}
+
+footer {
+  margin-top: 100px;
+}
+
+#total_score {
+  font-size: 20px;
+}

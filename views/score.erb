@@ -1,0 +1,42 @@
+<h1> Score </h1>
+
+<form action="#" method="post">
+  <h2>Word(s) to Score</h2>
+  </p>
+  <label id="words_label" for="word_to_score">Please enter words separated by commas.</label>
+  <textarea rows="4" cols="50" id="words" name="word_to_score"></textarea>
+  <!-- <label for="7_letter_words">7 Letter words</label><input type="radio" name="hair_style" id="hair_style_0" value="0">
+  <label for="hair_style_1">Down</label><input type="radio" name="hair_style" id="hair_style_1" value="1"> -->
+  <p>
+    <input type="submit" name="submit_words" id="submit_words" value="Score Words">
+  </p>
+</form>
+
+<% if @scored_word %>
+  <% if @not_legit_word %>
+    <p class="word_scores ">
+      Sorry, you have not entered a word. Please try again.
+    </p>
+  <% else %>
+    <p class="word_scores">
+      <% if @grammar_correct %>
+        Here are the scores for the words you entered:
+      <% else %>
+        Here is the score for the word you entered:
+      <% end %>
+
+      <ul>
+        <% @score_hash.each do |word, score| %>
+        <li>
+          <%= word %> scored <%= score %> points.
+          <a href="/word/<%= word %>">Breakdown</a>
+        </li>
+        <% end %>
+      </ul>
+
+    </p>
+
+
+
+  <% end %>
+<% end %>

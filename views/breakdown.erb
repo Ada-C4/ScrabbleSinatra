@@ -1,0 +1,13 @@
+<h2> Here is the letter by letter breakdown for <%= @word %></h2>
+
+<ul>
+  <% @word.each_char do |letter| %>
+    <li>
+      <%= letter %> scored <%= Scrabble.score(letter) %>
+    </li>
+  <% end %>
+</ul>
+
+<p id="total_score">
+  Total score for the word <%= @word %> was <%= Scrabble.score(@word) %>
+</p>
