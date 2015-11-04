@@ -4,6 +4,7 @@
 module Scrabble
   class Scrabble
     def self.letter_score(letter)
+      letter = letter.upcase
       case letter
        when "A", "E", "I", "O", "U", "L", "N", "R", "S", "T"
          point = 1
