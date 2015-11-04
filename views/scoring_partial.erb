@@ -2,23 +2,24 @@
   <table border="1">
     <tr>
       <thead>
-        <th>Word</th>
-        <th>Breakdown</th>
-        <th>Score</th>
+        <th>WORD</th>
+        <th>BREAKDOWN</th>
+        <th>SCORE</th>
       </thead>
     </tr>
+
     <% hash_power = @word_score.keys.sort_by do |word|
        @word_score[word]
     end.reverse %>
 
-    <% hash_power.each do |key| %>
-      <% equation = key.split("").map do |letter|
-           @letter_scores[letter]
-         end %>
+    <% hash_power.each do |key|
+      equation = key.split("").map do |letter|
+         @letter_scores[letter]
+      end %>
 
-      <% if @bonus && key.length == 7 %>
-        <% equation.push("50 POINT BONUS!") %>
-      <% end %>
+      <% if @bonus && key.length == 7
+        equation.push("50 POINT BONUS!")
+      end %>
       <tr>
         <td>
           <%= key %>
