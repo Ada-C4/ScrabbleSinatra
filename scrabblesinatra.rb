@@ -35,7 +35,7 @@ class SinatraScrabble < Sinatra::Base
   post "/multiple_scores" do
     @word = params[:user_input]
 
-    multiple_words = @word.split(", ")
+    multiple_words = @word.split(" ")
     #creates a hash
     @multiple_word_score = {}
     # pushes each individual word of array into array
@@ -50,6 +50,6 @@ class SinatraScrabble < Sinatra::Base
         end
       @total
     end
-    erb :multiple_scores
+    erb :multiple_words
   end
 end

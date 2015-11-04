@@ -1,42 +1,51 @@
+require 'pry'
+
 module Scrabble
 
   class ScrabbleGame
 
+
+# another way to do the hash is score =
+# {"a": 1,
+#  "b": 2,
+# }
+
     def self.score(word)
-      value = Hash.new
-      value["a"] = 1
-      value["b"] = 3
-      value["c"] = 3
-      value["d"] = 2
-      value["e"] = 1
-      value["f"] = 4
-      value["g"] = 2
-      value["h"] = 4
-      value["i"] = 1
-      value["j"] = 8
-      value["k"] = 5
-      value["l"] = 1
-      value["m"] = 3
-      value["n"] = 1
-      value["o"] = 1
-      value["p"] = 3
-      value["q"] = 10
-      value["r"] = 1
-      value["s"] = 1
-      value["t"] = 1
-      value["u"] = 1
-      value["v"] = 4
-      value["w"] = 4
-      value["x"] = 8
-      value["y"] = 4
-      value["z"] = 10
+      score = Hash.new
+      score["a"] = 1
+      score["b"] = 3
+      score["c"] = 3
+      score["d"] = 2
+      score["e"] = 1
+      score["f"] = 4
+      score["g"] = 2
+      score["h"] = 4
+      score["i"] = 1
+      score["j"] = 8
+      score["k"] = 5
+      score["l"] = 1
+      score["m"] = 3
+      score["n"] = 1
+      score["o"] = 1
+      score["p"] = 3
+      score["q"] = 10
+      score["r"] = 1
+      score["s"] = 1
+      score["t"] = 1
+      score["u"] = 1
+      score["v"] = 4
+      score["w"] = 4
+      score["x"] = 8
+      score["y"] = 4
+      score["z"] = 10
 
       letters = word.downcase.split("")
 
       word_score = 0
 
       letters.each do |letter|
-        word_score += value[letter]
+        word_score += score[letter]
+
       end
 
       if letters.length == 8
