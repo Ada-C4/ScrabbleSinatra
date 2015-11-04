@@ -1,0 +1,19 @@
+<h1>Score a word!</h1>
+<div id="scoreword">
+  <form id="score-form" action="" method="post">
+    <fieldset>
+
+      <p>
+        <label for="word">Please enter your word:</label>
+        <input type="text" name="word" id="word">
+      </p>
+      <br>
+      <input type="submit" name="submit" id="submit" value="Get Score">
+      <p>  <%=@singleword%> has a score of: <%=@score%> </p>
+    </fieldset>
+  </form>
+</div>
+
+
+
+<a class="internal_link" href="./multiwords.html">want to score more than one word? Click here.</a>
