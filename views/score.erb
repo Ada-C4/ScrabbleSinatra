@@ -1,0 +1,18 @@
+<!-- <h1>Whoa, hold your horses! Site coming soon!</h1> -->
+<h1>Scrabble</h1>
+<form id="scrabble_score" action="#" method="post">
+  <fieldset>
+  <p>
+    <label for="words">Please enter any words you would like scored, separated only by spaces:</label>
+    <input type="text" name="words" id="words">
+    <input type="submit" name="submit" id="submit" value="Score Words">
+  <p>
+    <% if @words_scored %>
+     <% @words_played.each do |word| %>
+     <p>
+       The score for <strong><%= word %></strong> is: <%= @word_scores_hash[word] %>
+     </p>
+     <% end %>
+    <% end %>
+  </fieldset>
+</form>
