@@ -1,1 +1,24 @@
-<h1> Coming Soon! </h1>
+<h1>See how many points your scrabble word will earn</h1>
+<h5>Not including double/triple letter/word scores</h5>
+<h6>so...almost pointless. almost.</h6>
+<div id="score">
+  <form id="word-form" action="" method="post">
+    <fieldset>
+      <legend>Type your word here:</legend>
+
+      <p>
+        <label for="word">Word:</label>
+        <input type="text" name="word" id="word">
+      </p>
+
+      <p>
+        <input type="submit" name="submit" id="submit" value="Check Words">
+      </p>
+    </fieldset>
+
+    <% if @word_played %>
+    <h2>"<%= @word_input %>" would earn you <%= @score %> points.</h2>
+    <% end %>
+
+  </form>
+</div>

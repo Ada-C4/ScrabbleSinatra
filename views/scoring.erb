@@ -1,0 +1,7 @@
+<h1> These are the scores for the words you entered:</h1>
+
+<% @word_array.each do |word| %>
+  <h3>"<%= word %>" equals  <%= Scrabble::Scrabble.score(word.upcase) %></h3>
+
+
+<% end %>

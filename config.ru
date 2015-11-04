@@ -1,2 +1,2 @@
 require './scrabble'
-run Scrabble
+run ScrabbleSinatra
