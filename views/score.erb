@@ -5,7 +5,9 @@
       <legend>Word</legend>
           <!-- <label for="word">Word:</label> -->
           <input name="word" id="word">
-          <p>The score for that word is <%= @score %></p>
+          <% if @score != nil %>
+          <p> <%= @word %> = <%= @score %></p>
+          <% end %>
     </fieldset>
   </form>
 </div>

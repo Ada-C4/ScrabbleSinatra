@@ -17,8 +17,8 @@ class ScrabbleSinatra < Sinatra::Base
 
   post "/score" do
     @page_name = "Score a Word"
-    word = params[:word]
-    @score = Scrabble::ScrabbleGame.score(word)
+    @word = params[:word]
+    @score = Scrabble::ScrabbleGame.score(@word)
     erb :score
   end
 
