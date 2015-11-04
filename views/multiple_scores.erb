@@ -3,7 +3,8 @@
     <%if @multiple_word_score.nil? %>
       <% else %>
       <% @multiple_word_score.each do |word, score|%>
-      <p>The value of <strong><%= word %></strong> is <%= score %>.</p>
+      <% @word, @score = word, score %>
+      <%= multiple_scores %>
       <% end %>
       <p><strong>Your total score is <%= @total %>.</strong></p>
     <% end %>

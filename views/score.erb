@@ -1,7 +1,7 @@
     <h4>Please enter a word below to find out its Scrabble score!</h4>
     <%if @score.nil? %>
       <% else %>
-      <p> <%= @word %> is worth <%= @score %> points!</p>
+      <%= multiple_scores %>
     <% end %>
     <form action="#" method="post">
     <p>

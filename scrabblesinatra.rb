@@ -4,6 +4,10 @@ require "./lib/highest_score.rb"
 
 class SinatraScrabble < Sinatra::Base
 
+  def multiple_scores
+    erb :score_prompt
+  end
+
   get "/" do
     erb :index
     @title = "Homepage"
