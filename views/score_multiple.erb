@@ -1,0 +1,15 @@
+<h1>Enter Multiple Words Page</h1>
+<form action="/score_multiple" method="post">
+  <p>
+    <% counter = 0 %>
+    <% @num.to_i.times do %>
+      <% counter += 1 %>
+      <label for"word_<%= counter %>">Enter Word <%= counter %>:</label>
+      <input type="text" name="word_<%= counter %>" id="word_<%= counter %>">
+      <br>
+      <br>
+    <% end %>
+    <input type="hidden" name="input_num" id="input_num" value="<%= @num %>">
+    <input type="submit" name="submit" id="submit">
+  </p>
+</form>
