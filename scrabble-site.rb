@@ -1,7 +1,6 @@
 require "sinatra"
 require "./lib/scrabble_class"
-require "./lib/tile_bag"
-require "./player"
+
 
 class ScrabbleSinatra < Sinatra::Base
   get "/" do
@@ -13,9 +12,25 @@ class ScrabbleSinatra < Sinatra::Base
   end
 
   post "/score" do
-    word = params[:score]
-    Scrabble::Scrabble.score(score)
+    word = params[:word]
+    @score = Scrabble::Scrabble.score(word)
+    erb :score
   end
+
+  get "/score_words" do
+    erb :score_words
+  end
+
+  post "/score_words" do
+    @words = params[:multiply_words].split(" ")
+    @scores_array = []
+    @words.each do |word|
+      score = Scrabble::Scrabble.score(word)
+      @scores_array.push(score)
+    end
+    erb :score_words
+  end
+
 
 
 end

@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <fieldset>
+      <legend>Multiply Words Score Page</legend>
+        <form id="words-form" action="#" method="post">
+          <label for="multiply_words">Please write the words</label>
+          <br>
+          <textarea rows="10" cols="50" name="multiply_words" id="multiply_words"></textarea>
+          <p> <input type="submit" name="submit" id="submit" value="Submit word"></p>
+        </form>
+    </fieldset>
+
+
+
+    <% if @words != nil %>
+      <% @words.length.times do |n| %>
+        <p> <%= @words[n] %> has a score of <%= @scores_array[n] %> </p>
+      <% end %>
+    <% end %>
+
+  </body>
+  </html>

@@ -1,9 +1,21 @@
-<fieldset>
-  <legend>Score Page</legend>
-    <p>
-      <form id="word-form" action="#" method="post">
+<html>
+  <body>
+    <fieldset>
+      <legend>Score Page</legend>
+        <form id="word-form" action="#" method="post">
+          <p>
             <label for="word">Word:</label>
             <input type="text" name="word" id="word">
-      </form>
-    </p>
-</fieldset>
+          </p>
+          <p>
+            <input type="submit" name="submit" id="submit" value="Submit word">
+          </p>
+        </form>
+    </fieldset>
+
+    <% if @score != nil %>
+      <p> Your score is <%= @score %> </p>
+    <% end %>
+  </body>
+
+</html>
