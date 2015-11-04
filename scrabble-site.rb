@@ -14,8 +14,13 @@ class ScrabbleSinatra < Sinatra::Base
   end
 
   post "/score" do
+    @letter_hash = {}
     word = params[:word]
     @score = Scrabble::Scrabble.score(word)
+    letters = word.split("")
+    letters.each do |letter|
+      @letter_hash[letter] = Scrabble::Scrabble.letter_value(letter)
+    end
     erb :score
   end
 
