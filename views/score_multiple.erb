@@ -2,11 +2,18 @@
 <div id="words_input">
   <form id="words-form" action="#" method="post">
     <fieldset>
-      <legend>Words</legend>
-          <!-- <label for="word">Word:</label> -->
-          <input type="words" name="words" id="words">
-          The score for those words are
-          <%= word%> <%= score %>.
+      <!-- <label for="Words">Words:</label> -->
+      <textarea rows="10" cols="50" name="words" id="words"></textarea>
+      <p>
+        <input type="submit" name="submit" id="submit" value="Submit words">
+      </p>
+      <p>
+      <%if @words_with_scores != nil %>
+        <% @words_with_scores.each do |word, score| %>
+          <p><%= word %>   =   <%= score %></p>
+        <% end %>
+      <% end %>
+      </p>
     </fieldset>
   </form>
 </div>

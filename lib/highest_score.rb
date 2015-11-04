@@ -4,15 +4,19 @@ require "./lib/score.rb"
 module Scrabble
   class ScrabbleGame
 
+
     def self.score_multiple_words(array_of_words)
-    #for each word in array, call method to get the score
-    #and make a hash of words with scores
       wordscore_hash = {}
       array_of_words.each do |w|
         score = self.score(w)
         wordscore_hash[w] = score
       end
       return wordscore_hash
+    end
+
+    def self.string_to_multiple_word_scores(string_of_words)
+      word_array = string_of_words.split(" ")
+      Scrabble::ScrabbleGame.score_multiple_words(word_array)
     end
 
     def self.highest_score_from(array_of_words)
