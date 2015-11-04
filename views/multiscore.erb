@@ -1,0 +1,14 @@
+<h1>Get a score for multiple words!</h1>
+<p>
+  Enter a list of comma separated words below.
+</p>
+<form id="get-multi-scores" action="#" method="post">
+  <input type="text" id="words" name="words">
+  <input type="submit" name="submit" id="submit" value="Score your words">
+</form>
+<p>
+  Here are the scores for your words:
+</p>
+<% @words_hash.each do |k,v| %>
+<p><%= k %>: <%= v %></p>
+<% end %>
