@@ -1,0 +1,12 @@
+<h2><%= @page_name %></h2>
+<div id="score_a_word">
+  <form id="word-form" action="#" method="post">
+    <fieldset>
+      <legend>Word</legend>
+          <p><input name="word" id="word"></p>
+          <% if @score != nil %>
+            <p> <%= @word %> = <%= @score %></p>
+          <% end %>
+    </fieldset>
+  </form>
+</div>
