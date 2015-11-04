@@ -25,6 +25,10 @@ describe Scrabble do
       it "returns nil when given an empty String" do
         expect(Scrabble::Scrabble.score("")).to be_nil
       end
+      it "returns nil when given a string with numbers" do
+        expect(Scrabble::Scrabble.score("1234")).to be_nil
+      end
+
       it "does not accept non-string arguments" do
         expect(Scrabble::Scrabble.score(4)).to be_nil
       end
@@ -59,7 +63,7 @@ describe Scrabble do
         expect(Scrabble::Scrabble.highest_score_from_array(["dog", "friend", "haiku"])).to eq("haiku")
         expect(Scrabble::Scrabble.highest_score_from_array(["jennie", "jenna"])).to eq("jennie")
       end
-      # 
+      #
       # it "will return the 7-letter word in the case of a tie" do
       #   expect(Scrabble::Scrabble.highest_score_from_array(["qqqqqj", "aaaaaad"])).to eq("aaaaaad")
       #   expect(Scrabble::Scrabble.highest_score_from_array(["zzzzzx", "qqqqqj", "aaaaaad"])).to eq("aaaaaad")
@@ -92,10 +96,5 @@ describe Scrabble do
         expect(Scrabble::Scrabble.get_word_breakdown("interact", true)).to eq("1 + 1 + 1 + 1 + 1 + 1 + 3 + 1 + 50")
       end
     end
-
-
   end
-
-
-
 end

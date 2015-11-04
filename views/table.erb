@@ -1,0 +1,19 @@
+<table class="table table-hover">
+  <caption class="shadow">How many points your word(s) score in Scrabble:</caption>
+  <thead>
+    <tr class="warning">
+      <td><strong>Word</strong></td>
+      <td><strong>Score Breakdown</strong></td>
+      <td><strong>Total</strong></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @words.keys.each do |word| %>
+      <tr>
+        <td><%= word %></td>
+        <td><%= @words[word][:word_breakdown] %></td>
+        <td><%= @words[word][:score] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

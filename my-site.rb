@@ -17,11 +17,14 @@ class MySite < Sinatra::Base
     @title = "Word Score"
     word_array = params[:word].split(" ")
     word = word_array[0]
-    bonus = params[:bonus] == "on"
-    @words = {}
-    @words[word] = {}
-    @words[word][:score] = Scrabble::Scrabble.score(word, bonus)
-    @words[word][:word_breakdown] = Scrabble::Scrabble.get_word_breakdown(word, bonus)
+    @valid_word = Scrabble::Scrabble.word?(word)
+    if @valid_word
+      bonus = params[:bonus] == "on"
+      @words = {}
+      @words[word] = {}
+      @words[word][:score] = Scrabble::Scrabble.score(word, bonus)
+      @words[word][:word_breakdown] = Scrabble::Scrabble.get_word_breakdown(word, bonus)
+    end
     erb :scoredword
   end
 
@@ -32,6 +35,7 @@ class MySite < Sinatra::Base
 
   post "/scoremany" do
     @title = "Word Score"
+    @valid_word = true
     word_array = params[:word].split(" ")
     @words = {}
     word_array.each do |word|

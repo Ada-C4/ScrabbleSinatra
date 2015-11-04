@@ -32,7 +32,8 @@ module Scrabble
     }
 
     def self.word?(word)
-      return false if word.class != String || word == ""
+      word.strip! if word.class == String 
+      return false if word.class != String || word == "" || word[/[a-zA-Z]+/]  != word
       return true
     end
 
