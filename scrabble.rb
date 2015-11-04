@@ -26,5 +26,4 @@ class ScrabbleSinatra < Sinatra::Base
     @word_array = [params[:word1], params[:word2], params[:word3], params[:word4]]
     erb :scoring
   end
-
 end
