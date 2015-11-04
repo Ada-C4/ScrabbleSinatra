@@ -1,0 +1,17 @@
+<h1>So you want to score your words?</h1>
+<div id="form">
+  <form id="score_get" action="/got_score" method="get">
+    <fieldset>
+      <label for="scrabble_word">Scrabble Word</label>
+      <p>Input one or more words here, separated by commas, and you'll get the scores for each.</p>
+      <input type="text" name="word" id="scrabble_word" placeholder:"Ex. cat, dog, spider, rainbow">
+      <legend> House Rules </legend>
+        <label><input type="radio" name = "rules" value="shortest">Shortest word always wins</label>
+        <label><input type="radio" name = "rules" value="seven_letter">7-letter word gets 50pt bonus</label>
+        <br> <br>
+     <input type="submit" value="Score Away!">
+    </fieldset>
+  </form>
+</div>
+
+
