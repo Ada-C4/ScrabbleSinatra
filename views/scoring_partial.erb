@@ -1,12 +1,12 @@
-<table border="1">
-  <% if !@word_score.nil? %>
-  <tr>
-    <thead>
-      <th>Word</th>
-      <th>Breakdown</th>
-      <th>Score</th>
-    </thead>
-  </tr>
+<% if !@word_score.nil? %>
+  <table border="1">
+    <tr>
+      <thead>
+        <th>Word</th>
+        <th>Breakdown</th>
+        <th>Score</th>
+      </thead>
+    </tr>
     <% hash_power = @word_score.keys.sort_by do |word|
        @word_score[word]
     end.reverse %>
@@ -31,5 +31,5 @@
         </td>
       </tr>
     <% end %>
-  <% end %>
-</table>
+  </table>
+<% end %>
