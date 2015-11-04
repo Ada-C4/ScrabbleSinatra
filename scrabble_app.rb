@@ -15,14 +15,26 @@ class SinatraScrabble < Sinatra::Base
     erb :scored_word
   end
 
-  get "/score_multiple" do
+  get "/score_multiple_setter" do
+    # @num = 0
+    erb :score_multiple_setter
+  end
+
+  post "/score_multiple_setter" do
+    @num = params[:num]
     erb :score_multiple
   end
 
   post "/score_multiple" do
-    @word_1 = params[:word_1]
-    @word_2 = params[:word_2]
-    @word_3 = params[:word_3]
+    @num = params[:input_num]
+    counter = 0
+    @words = []
+    @num.to_i.times do
+      counter += 1
+      sym = ("word_" + counter.to_s).to_sym
+      word = params[sym]
+      @words.push(word)
+    end
     erb :scored_multiple
   end
 end
