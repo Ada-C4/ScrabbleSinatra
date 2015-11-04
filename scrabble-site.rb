@@ -3,10 +3,12 @@ require './lib/scrabble'
 
 class ScrabbleSite < Sinatra::Base
   get "/" do
+    @title = "Let's Play Scrabble!"
     erb :index
   end
 
   get "/score" do
+    @title = "Score A Word"
     erb :score
   end
 
@@ -18,6 +20,7 @@ class ScrabbleSite < Sinatra::Base
   end
 
   get "/score_multiple" do
+    @title = "Score Multiple Words"
     erb :score_multiple
   end
 
