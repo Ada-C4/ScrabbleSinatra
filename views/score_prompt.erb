@@ -1,0 +1,11 @@
+
+<!-- In any view that shows a scored word, include a letter-by-letter breakdown
+showing the point value for each letter along with the score for the word. -->
+<p>The value of <strong><%= @word %></strong> is <%= @score %>.</p>
+<p>The individual point value for each letter is below:</p>
+<% @word.each %>
+<% @letters = @word.split("") %>
+<%  @letters.each do |letter| %>
+<% letter_score = Scrabble::ScrabbleGame.score(letter) %>
+<%= "#{letter}: #{letter_score.to_s} " %>
+<% end %>
