@@ -24,6 +24,7 @@ class ScrabbleSite < Sinatra::Base
         @letter_hash[char] = Scrabble.score(char)
       end
     end
+    @loquacious = Scrabble.highest_score_from(word_array) if params[:rules] == "7-letter"
     erb :scoring
   end
 end
