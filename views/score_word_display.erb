@@ -1,3 +1,10 @@
 <p>
+  <% letters = @word.split("") %>
+  <% letters.each do |letter| %>
+    <% letter.upcase! %>
+    <% letter_score = Scrabble::Scrabble::SCORES[letter] %>
+    <%= letter + " = " + letter_score.to_s %>
+  <% end %>
+  <br>
   The score of <strong><%= @word %></strong> is <strong><%= @score %></strong>
 </p>
