@@ -1,0 +1,18 @@
+<h1>Scrabble Score Calculator</h1>
+
+<% if @scored == "true" %>
+  <% @words_and_scores_hash.each do |word, score| %>
+    <p>
+      The score for <%= word %> is <%= score %>
+    </p>
+  <% end %>
+<% end %>
+
+
+<form id="score" action="#" method="post">
+
+    <label for="word">Word to score:</label>
+    <input type="text" id="word" name="word">
+
+  <input type="submit" name="submit" value="Calculate">
+</form>
