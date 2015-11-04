@@ -1,0 +1,36 @@
+<h1>See how many points your scrabble word will earn</h1>
+<h5>Not including double/triple letter/word scores</h5>
+<h6>so...almost pointless. almost.</h6>
+<div id="score">
+  <form id="word-form" action="" method="post">
+    <fieldset>
+      <legend>Type your word here:</legend>
+
+      <p>
+        <label for="word">Word:</label>
+        <input type="text" name="word" id="word">
+      </p>
+
+      <p>
+        <input type="submit" name="submit" id="submit" value="Check Words">
+      </p>
+    </fieldset>
+
+    <% if @word_played %>
+
+    <h2>"<%= @word_input %>" would earn you <%= @score %> points.</h2>
+
+      <% if @word_input.length >= 7 %>
+        <p>Numbers not quite adding up? You receive a 50 point bonus for 7 letter words!</p>
+      <% end %>
+
+    <p>And here's the breakdown of each letter's point value:</p>
+    <% letter_array = @word_input.split("") %>
+      <% letter_array.each do |letter| %>
+        <% letter_count = Scrabble::Scrabble.letter_score(letter.upcase) %>
+        <p><%= letter %> = <%= letter_count %></p>
+      <% end %>
+    <% end %>
+
+  </form>
+</div>
