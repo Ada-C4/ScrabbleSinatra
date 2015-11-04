@@ -1,7 +1,4 @@
-<html>
-  <body>
-    <fieldset>
-      <legend>Score Page</legend>
+
         <form id="word-form" action="#" method="post">
           <p>
             <label for="word">Word:</label>
@@ -11,11 +8,8 @@
             <input type="submit" name="submit" id="submit" value="Submit word">
           </p>
         </form>
-    </fieldset>
+
 
     <% if @score != nil %>
       <p> Your score is <%= @score %> </p>
     <% end %>
-  </body>
-
-</html>

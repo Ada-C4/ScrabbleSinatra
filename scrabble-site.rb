@@ -4,10 +4,12 @@ require "./lib/scrabble_class"
 
 class ScrabbleSinatra < Sinatra::Base
   get "/" do
+    @title = "Home page"
     erb :index
   end
 
   get "/score" do
+    @title = "Score Page"
     erb :score
   end
 
@@ -22,6 +24,7 @@ class ScrabbleSinatra < Sinatra::Base
   end
 
   post "/score_words" do
+    @title = "Multiply Words Score Page"
     @words = params[:multiply_words].split(" ")
     @scores_array = []
     @words.each do |word|
