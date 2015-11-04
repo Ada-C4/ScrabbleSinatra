@@ -12,8 +12,8 @@ class ScrabbleSite < Sinatra::Base
   end
 
   post "/score" do
-      @word = params[:word]
-      @points = Scrabble::Scrabble.score(@word)
+      @word_being_scored = params[:word].upcase
+      @points = Scrabble::Scrabble.score(@word_being_scored)
       @scored = "true"
       erb :score
   end
