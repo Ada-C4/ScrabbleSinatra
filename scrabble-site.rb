@@ -18,10 +18,22 @@ class ScrabbleSite < Sinatra::Base
   end
 
   get "/multiscore" do
+    @words = []
+    @words_hash = {}
     erb :multiscore
   end
 
   post "/multiscore" do
+    big_string = params[:words]
+    @words = big_string.split(",")
+    @words_hash = {}
+    @words.each do |word|
+      @words_hash[word] = ScrabbleMod::Scrabble.score(word)
+    end
+    # @words.each do |word|
+    #   score = ScrabbleMod::Scrabble.score(word)
+    #   @scores.push(score)
+    # end
     erb :multiscore
   end
 

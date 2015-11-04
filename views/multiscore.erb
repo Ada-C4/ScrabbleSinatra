@@ -7,5 +7,8 @@
   <input type="submit" name="submit" id="submit" value="Score your words">
 </form>
 <p>
-  Here are the scores for your words <%= @word %>: <%= @score %>
+  Here are the scores for your words:
 </p>
+<% @words_hash.each do |k,v| %>
+<p><%= k %>: <%= v %></p>
+<% end %>
