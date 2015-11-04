@@ -16,10 +16,19 @@ class ScrabbleSinatra < Sinatra::Base
 
   post "/score" do
     @word = params[:word]
-    @score = Scrabble::Scrabble.score(@word)
-    if @word != ""
+    if @word.include?(",")
+      @invalid_word = true
+    elsif !@word.nil?
       @word_submitted = true
     end
     erb :score
+  end
+
+  post "/score_multiple" do
+    @words = params[:words].split(",").map(&:strip)
+    if !@words.nil?
+      @words_submitted = true
+    end
+    erb :score_multiple
   end
 end

@@ -1,17 +1,33 @@
-<!-- need form to allow user to input multiple words -->
-<h1>Let's score your scrabble words!</h1>
+<% if @words_submitted %>
+  <h1>Your word scores</h1>
+  <div class="score-box">
+    <% @words.each do |word| %>
+      <p><%= word %>: <%= Scrabble::Scrabble.score(word) %> </p>
+      <% word.split(//).each do |letter| %>
+        <p><%= letter %>: <%= Scrabble::Scrabble.letter_score(letter.upcase) %> </p>
+      <% end %>
+    <% end %>
+  </div>
 
-<div id="scorebox">
-  <form id="score-form" action="#">
-    <fieldset>
-      <legend>Scrabble Scoring</legend>
+  <a class="button" href="/score_multiple">Score more words</a>
 
+<% else %>
+  <h1>Let's score your scrabble words!</h1>
+
+  <img class="image" src="http://www.ericharshbarger.org/scrabble/images/banner.jpg" alt="Scrabble">
+
+  <div class="score-box">
+    <p>
+      Please enter your words, separated by commas.
+    </p>
+    <form id="score-form" action="#" method="post">
       <p>
-        <label for="word">Word:</label>
-        <input type="text" name="word" id="word">
+        <label for="words">Words:</label>
+        <input type="text" name="words" id="words">
       </p>
-    </fieldset>
-  </form>
-</div>
+      <input class="button" type="submit" id="submit" name="submit" value="Submit">
+    </form>
+  </div>
+<% end %>
 
-<a href="/">back to home</a>
+<a class="button" href="/">Home</a>

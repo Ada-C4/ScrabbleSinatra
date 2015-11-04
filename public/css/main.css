@@ -1,0 +1,45 @@
+h1 {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+}
+
+.image {
+  margin: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  font-family: Verdana
+}
+
+.score-box {
+  margin:auto;
+  width: 300px;
+  font-family: Verdana;
+}
+
+form {
+  font-family: Verdana;
+}
+
+input {
+  font-family: Verdana;
+  width: 200px;
+}
+
+.button {
+  display: block;
+  background-color: #666666;
+  color: white;
+  width: 200px;
+  height: 40px;
+  margin: 20px auto;
+  text-align: center;
+  line-height: 40px;
+  font-size: 12px;
+}
+
+.input {
+  width = 300px;
+}
