@@ -19,6 +19,7 @@ class ScrabbleSite < Sinatra::Base
         points = Scrabble::Scrabble.score(split_word.upcase)
         @word_scores_array.push(points.to_s)
       end
+      @words_and_scores_hash = Hash[@word_being_scored_array.zip(@word_scores_array)]
       @scored = "true"
       erb :score
   end

@@ -1,10 +1,9 @@
 <h1>Scrabble Score Calculator</h1>
 
 <% if @scored == "true" %>
-  <p>
-    <%= @word_being_scored_array%> & <%= @word_scores_array %>
-  </p>
+  <%= @words_and_scores_hash%>
 <% end %>
+
 
 <form id="score" action="#" method="post">
 
