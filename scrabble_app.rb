@@ -16,7 +16,6 @@ class SinatraScrabble < Sinatra::Base
   end
 
   get "/score_multiple_setter" do
-    # @num = 0
     erb :score_multiple_setter
   end
 
