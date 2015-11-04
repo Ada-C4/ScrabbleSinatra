@@ -75,3 +75,8 @@ caption {
 input[type="checkbox"]{
   font-size: 1.4em;
 }
+
+a,
+a:hover {
+  transition: background-color 0.5s ease;
+}
