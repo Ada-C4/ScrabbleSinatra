@@ -6,9 +6,13 @@ class SinatraScrabble < Sinatra::Base
 
   get "/" do
     erb :index
+    @title = "Homepage"
+    @h1 = "Welcome to Virtual Scrabble!"
   end
 
   get "/score" do
+    @title = "Single Score"
+    @h1 = "Score a word in Scrabble!"
     erb :score
   end
 
@@ -19,6 +23,8 @@ class SinatraScrabble < Sinatra::Base
   end
 
   get "/multiple_scores" do
+    @title = "Multiple Scores"
+    @h1 = "Score multiple words in Scrabble!"
     erb :multiple_scores
   end
 
