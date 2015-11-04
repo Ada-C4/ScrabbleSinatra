@@ -1,0 +1,17 @@
+
+        <form id="word-form" action="#" method="post">
+          <p>
+            <label for="word">Word:</label>
+            <input type="text" name="word" id="word">
+          </p>
+          <p>
+            <input type="submit" name="submit" id="submit" value="Submit word">
+          </p>
+        </form>
+
+
+    <% if @score != nil %>
+      <p> Your score is <%= @score %> </p>
+    <% end %>
+
+  <p>  <%= @letter_hash %>   </p>
